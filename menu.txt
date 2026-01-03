@@ -1,0 +1,21 @@
+Restaurante Copo Cheio
+
+Entradas
+Pão e manteiga
+Azeitonas
+Enchidos
+
+Prato principal
+Cozido à portuguesa
+Bacalhau à Brás
+‘Bacalhau à Brás’ Vegetariano
+
+Sobremesas
+Mousse de chocolate
+Pão de ló
+Salada de fruta
+
+Bebidas
+Água
+Sumo
+Vinho
