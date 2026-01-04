@@ -1,16 +1,26 @@
-const imgs = document.querySelectorAll(".slides img");
-const dots = document.querySelectorAll(".dot");
-let i = 0;
+// Selecionar todos os carrosséis
+const carousels = document.querySelectorAll(".carousel");
 
-function show(n) {
-  i = (n + imgs.length) % imgs.length;
-  imgs.forEach((img) => (img.style.transform = `translateX(-${i * 100}%)`));
-  dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
-}
+carousels.forEach((carousel) => {
+  // Elementos específicos de CADA carrossel
+  const imgs = carousel.querySelectorAll(".slides img");
+  const dots = carousel.querySelectorAll(".dot");
+  const prevBtn = carousel.querySelector(".prev");
+  const nextBtn = carousel.querySelector(".next");
+  
+  let i = 0; // Índice independente para cada carrossel
 
-document.querySelector(".prev").onclick = () => show(i - 1);
-document.querySelector(".next").onclick = () => show(i + 1);
-dots.forEach((d, idx) => (d.onclick = () => show(idx)));
+  function show(n) {
+    i = (n + imgs.length) % imgs.length;
+    imgs.forEach((img) => (img.style.transform = `translateX(-${i * 100}%)`));
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+  }
 
-// Autoplay (opcional)
-setInterval(() => show(i + 1), 4000);
+  // Event listeners específicos para cada carrossel
+  prevBtn.onclick = () => show(i - 1);
+  nextBtn.onclick = () => show(i + 1);
+  dots.forEach((d, idx) => (d.onclick = () => show(idx)));
+
+  // Autoplay independente para cada carrossel (opcional)
+  setInterval(() => show(i + 1), 4000);
+});
