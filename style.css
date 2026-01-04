@@ -41,6 +41,7 @@ nav,
 aside,
 main,
 #Menu,
+#Contactos,
 footer {
   grid-column: 2; /* Coluna central */
   width: 100%;
