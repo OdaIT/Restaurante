@@ -19,3 +19,9 @@ Bebidas
 Água
 Sumo
 Vinho
+
+
+tags
+gluten
+lactose
+vegetariano
