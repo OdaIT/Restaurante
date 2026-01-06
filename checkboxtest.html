@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Restaurante Sabor Natural</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background: #2e7d32;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .filtros {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .filtros label {
+      margin-right: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .item {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .item h3 {
+      margin-top: 0;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #e0e0e0;
+      padding: 4px 8px;
+      margin-right: 5px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* --- FILTROS APENAS COM CSS --- */
+
+/* por defeito esconder tudo */
+.menu .item {
+  display: none;
+}
+
+/* mostrar itens conforme checkboxes selecionadas */
+#vegetariano:checked ~ .menu .item[data-vegetariano],
+#sem-lactose:checked ~ .menu .item[data-sem-lactose],
+#sem-gluten:checked ~ .menu .item[data-sem-gluten] {
+  display: block;
+}
+  </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.filtros input');
+    const items = document.querySelectorAll('.item');
+
+    function filtrar() {
+      const ativos = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.id);
+
+      items.forEach(item => {
+        // se não houver filtros ativos, mostra tudo
+        if (ativos.length === 0) {
+          item.style.display = 'block';
+          return;
+        }
+
+        // AND: o item tem de ter TODOS os atributos
+        const mostrar = ativos.every(filtro =>
+          item.hasAttribute(`data-${filtro}`)
+        );
+
+        item.style.display = mostrar ? 'block' : 'none';
+      });
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', filtrar));
+    filtrar();
+  });
+</script>
+</head>
+<body>
+
+  <header>
+    <h1>Restaurante Sabor Natural</h1>
+    <p>Comida saudável e deliciosa</p>
+  </header>
+
+  <main>
+    <div class="filtros">
+      <p><strong>Filtrar menu:</strong></p>
+      <label>
+        <input type="checkbox" id="vegetariano"> Vegetariano
+      </label>
+      <label>
+        <input type="checkbox" id="sem-lactose"> Sem lactose
+      </label>
+      <label>
+        <input type="checkbox" id="sem-gluten"> Sem glúten
+      </label>
+    </div>
+
+    <div class="menu">
+      <div class="item" data-vegetariano data-sem-gluten>
+        <h3>Salada Mediterrânica</h3>
+        <p>Tomate, pepino, azeitonas e azeite.</p>
+        <div class="tags">
+          <span>Vegetariano</span>
+          <span>Sem glúten</span>
+        </div>
+      </div>
+
+      <div class="item" data-sem-lactose data-sem-gluten>
+        <h3>Peixe Grelhado</h3>
+        <p>Peixe fresco com legumes salteados.</p>
+        <div class="tags">
+          <span>Sem lactose</span>
+          <span>Sem glúten</span>
+        </div>
+      </div>
+
+      <div class="item" data-vegetariano data-sem-lactose>
+        <h3>Massa de Legumes</h3>
+        <p>Massa com legumes e molho de tomate.</p>
+        <div class="tags">
+          <span>Vegetariano</span>
+          <span>Sem lactose</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <h3>Frango com Natas</h3>
+        <p>Clássico prato tradicional.</p>
+        <div class="tags">
+          <span>Contém lactose</span>
+          <span>Contém glúten</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
