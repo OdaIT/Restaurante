@@ -24,9 +24,87 @@
         </p>
       </section>
     </header>
-    <nav></nav>
-    <aside></aside>
-    <main></main>
+    <!-- Filtros -->
+    <section class="filters-container">
+        <div class="filters-section">
+            
+            <!-- Categorias -->
+            <div class="filter-group">
+                <span class="filter-label">📂 Categorias</span>
+                <div class="checkbox-group" id="categoryFilters">
+                    <div class="checkbox-item category">
+                        <input type="checkbox" id="cat-entradas" value="entradas">
+                        <label class="checkbox-label" for="cat-entradas">🥗 Entradas</label>
+                    </div>
+                    <div class="checkbox-item category">
+                        <input type="checkbox" id="cat-principais" value="principais">
+                        <label class="checkbox-label" for="cat-principais">🍝 Principais</label>
+                    </div>
+                    <div class="checkbox-item category">
+                        <input type="checkbox" id="cat-sobremesas" value="sobremesas">
+                        <label class="checkbox-label" for="cat-sobremesas">🍰 Sobremesas</label>
+                    </div>
+                    <div class="checkbox-item category">
+                        <input type="checkbox" id="cat-bebidas" value="bebidas">
+                        <label class="checkbox-label" for="cat-bebidas">🍹 Bebidas</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preferências Dietéticas -->
+            <div class="filter-group">
+                <span class="filter-label">🥬 Preferências</span>
+                <div class="checkbox-group" id="preferenceFilters">
+                    <div class="checkbox-item preference">
+                        <input type="checkbox" id="pref-vegetariano" value="vegetariano">
+                        <label class="checkbox-label" for="pref-vegetariano">🥬 Vegetariano</label>
+                    </div>
+                    <div class="checkbox-item preference">
+                        <input type="checkbox" id="pref-vegano" value="vegano">
+                        <label class="checkbox-label" for="pref-vegano">🌱 Vegano</label>
+                    </div>
+                    <div class="checkbox-item preference">
+                        <input type="checkbox" id="pref-sem-gluten" value="sem-gluten">
+                        <label class="checkbox-label" for="pref-sem-gluten">🌾 Sem Glúten</label>
+                    </div>
+                    <div class="checkbox-item preference">
+                        <input type="checkbox" id="pref-picante" value="picante">
+                        <label class="checkbox-label" for="pref-picante">🌶️ Picante</label>
+                    </div>
+                    <div class="checkbox-item preference">
+                        <input type="checkbox" id="pref-popular" value="popular">
+                        <label class="checkbox-label" for="pref-popular">⭐ Popular</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingredientes -->
+            <div class="filter-group">
+                <span class="filter-label">🥘 Ingredientes</span>
+                <div class="checkbox-group" id="ingredientFilters">
+                    <!-- Gerado via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Barra de filtros ativos -->
+            <div class="active-filters-bar" id="activeFiltersBar"></div>
+
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <main class="menu-container">
+        <p class="results-info">
+            Mostrando <span class="results-count" id="resultsCount">0</span> itens
+        </p>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <h3>😕 Nenhum item encontrado</h3>
+            <p>Tenta ajustar os filtros selecionados</p>
+            <button onclick="clearAllFilters()">🗑️ Limpar Filtros</button>
+        </div>
+    </main>
+    
     <section class="menu">
       <section id="Entradas">
         <h3>Entradas - É o q'ouver</h3>
@@ -65,9 +143,9 @@
           <img src="Images\mouse.png" alt="Mousse de Chocolate" />
           <img src="Images\paodelo.png" alt="Pão de Ló" />
           <img src="Images\salada.png" alt="Salada de Fruta" />
-          <img src="Images/agua.png" alt="jarro de água" />
-          <img src="Images/sumo.png" alt="copo de sumo" />
-          <img src="Images/vinhocheio.jpeg" alt="copo de vinho (cheio)" />
+          <img src="Images/agua.png" alt="Jarro de água" />
+          <img src="Images/sumo.png" alt="Copo de sumo" />
+          <img src="Images/vinhocheio.jpeg" alt="Copo de vinho (cheio)" />
         </div>
 
         <button class="prev">❮</button>

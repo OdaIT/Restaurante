@@ -7,6 +7,7 @@
                 price: 8.50,
                 category: "entradas",
                 tags: ["vegetariano", "sem-gluten"],
+                ingredients: ["folhas", "tomate", "azeitonas", "queijo feta"],
                 image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400"
             },
             {
@@ -16,6 +17,7 @@
                 price: 6.90,
                 category: "entradas",
                 tags: ["vegetariano", "vegano"],
+                ingredients: ["pão", "tomate", "manjericão", "azeite"],
                 image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400"
             },
             {
@@ -25,6 +27,7 @@
                 price: 5.50,
                 category: "entradas",
                 tags: ["vegetariano"],
+                ingredients: ["legumes", "caldo"],
                 image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400"
             },
             {
@@ -34,6 +37,7 @@
                 price: 16.90,
                 category: "principais",
                 tags: ["vegetariano"],
+                ingredients: ["arroz", "cogumelos", "parmesão", "manteiga"],
                 image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400"
             },
             {
@@ -43,6 +47,7 @@
                 price: 14.50,
                 category: "principais",
                 tags: ["sem-gluten", "popular"],
+                ingredients: ["frango", "ervas", "legumes"],
                 image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=400"
             },
             {
@@ -52,6 +57,7 @@
                 price: 12.90,
                 category: "principais",
                 tags: ["vegetariano", "vegano", "picante"],
+                ingredients: ["massa", "tomate", "malagueta", "manjericão"],
                 image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400"
             },
             {
@@ -61,6 +67,7 @@
                 price: 22.90,
                 category: "principais",
                 tags: ["sem-gluten", "popular"],
+                ingredients: ["salmão", "ervas", "batata"],
                 image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400"
             },
             {
@@ -70,6 +77,7 @@
                 price: 13.90,
                 category: "principais",
                 tags: ["vegetariano", "vegano", "picante", "sem-gluten"],
+                ingredients: ["legumes", "curry", "leite de coco", "arroz"],
                 image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400"
             },
             {
@@ -79,6 +87,7 @@
                 price: 7.50,
                 category: "sobremesas",
                 tags: ["vegetariano", "popular"],
+                ingredients: ["mascarpone", "café", "cacau", "biscoitos"],
                 image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400"
             },
             {
@@ -88,6 +97,7 @@
                 price: 8.90,
                 category: "sobremesas",
                 tags: ["vegetariano"],
+                ingredients: ["chocolate", "gelado", "baunilha"],
                 image: "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=400"
             },
             {
@@ -97,6 +107,7 @@
                 price: 5.90,
                 category: "sobremesas",
                 tags: ["vegetariano", "vegano", "sem-gluten"],
+                ingredients: ["frutas"],
                 image: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400"
             },
             {
@@ -106,6 +117,7 @@
                 price: 3.90,
                 category: "bebidas",
                 tags: ["vegetariano", "vegano", "sem-gluten"],
+                ingredients: ["laranja"],
                 image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400"
             },
             {
@@ -115,6 +127,7 @@
                 price: 5.50,
                 category: "bebidas",
                 tags: ["vegetariano", "vegano", "sem-gluten"],
+                ingredients: ["espinafres", "maçã", "gengibre", "hortelã"],
                 image: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400"
             },
             {
@@ -124,6 +137,7 @@
                 price: 3.50,
                 category: "bebidas",
                 tags: ["vegetariano", "vegano", "sem-gluten"],
+                ingredients: ["limão", "hortelã"],
                 image: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400"
             },
             {
@@ -133,98 +147,105 @@
                 price: 1.80,
                 category: "bebidas",
                 tags: ["vegetariano", "vegano", "sem-gluten"],
+                ingredients: ["café"],
                 image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400"
             }
         ];
 
         // ===== ESTADO DA APLICAÇÃO =====
-        let currentFilters = {
-            category: 'todos',
-            tags: [],
-            maxPrice: 50,
-            search: ''
+        let filters = {
+            categories: [],
+            preferences: [],
+            ingredients: []
         };
 
         // ===== ELEMENTOS DO DOM =====
         const menuGrid = document.getElementById('menuGrid');
-        const categoryButtons = document.querySelectorAll('.filter-btn');
-        const tagButtons = document.querySelectorAll('.tag-filter');
-        const priceRange = document.getElementById('priceRange');
-        const priceValue = document.getElementById('priceValue');
-        const searchInput = document.getElementById('searchInput');
         const resultsCount = document.getElementById('resultsCount');
         const noResults = document.getElementById('noResults');
+        const activeFiltersBar = document.getElementById('activeFiltersBar');
+        const ingredientFiltersContainer = document.getElementById('ingredientFilters');
 
-        // ===== FUNÇÕES =====
+        // ===== GERAR CHECKBOXES DE INGREDIENTES =====
+        function generateIngredientCheckboxes() {
+            const ingredientSet = new Set();
+            menuData.forEach(item => {
+                item.ingredients.forEach(ing => ingredientSet.add(ing));
+            });
 
-        // Criar HTML de um item
-        function createMenuItemHTML(item) {
-            const tagsHTML = item.tags.map(tag => {
-                const tagLabels = {
-                    'vegetariano': '🥬 Vegetariano',
-                    'vegano': '🌱 Vegano',
-                    'picante': '🌶️ Picante',
-                    'sem-gluten': '🌾 Sem Glúten',
-                    'popular': '⭐ Popular'
-                };
-                return `<span class="item-tag tag-${tag}">${tagLabels[tag] || tag}</span>`;
-            }).join('');
+            const sortedIngredients = Array.from(ingredientSet).sort();
+            
+            ingredientFiltersContainer.innerHTML = sortedIngredients.map(ing => `
+                <div class="checkbox-item ingredient">
+                    <input type="checkbox" id="ing-${ing}" value="${ing}">
+                    <label class="checkbox-label" for="ing-${ing}">${capitalize(ing)}</label>
+                </div>
+            `).join('');
 
-            return `
-                <article class="menu-item" data-category="${item.category}" data-tags="${item.tags.join(',')}" data-price="${item.price}">
-                    <img src="${item.image}" alt="${item.name}" class="item-image" loading="lazy">
-                    <div class="item-content">
-                        <div class="item-header">
-                            <h3 class="item-name">${item.name}</h3>
-                            <span class="item-price">€${item.price.toFixed(2)}</span>
-                        </div>
-                        <p class="item-description">${item.description}</p>
-                        <div class="item-tags">${tagsHTML}</div>
-                    </div>
-                </article>
-            `;
+            // Adicionar event listeners
+            ingredientFiltersContainer.querySelectorAll('input').forEach(checkbox => {
+                checkbox.addEventListener('change', handleFilterChange);
+            });
         }
 
-        // Renderizar todos os items
-        function renderMenu() {
-            menuGrid.innerHTML = menuData.map(createMenuItemHTML).join('');
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // ===== FUNÇÕES DE FILTRAGEM =====
+        function handleFilterChange() {
+            updateFiltersState();
             applyFilters();
+            renderActiveFilters();
         }
 
-        // Aplicar filtros
+        function updateFiltersState() {
+            // Categorias
+            filters.categories = Array.from(
+                document.querySelectorAll('#categoryFilters input:checked')
+            ).map(cb => cb.value);
+
+            // Preferências
+            filters.preferences = Array.from(
+                document.querySelectorAll('#preferenceFilters input:checked')
+            ).map(cb => cb.value);
+
+            // Ingredientes
+            filters.ingredients = Array.from(
+                document.querySelectorAll('#ingredientFilters input:checked')
+            ).map(cb => cb.value);
+        }
+
         function applyFilters() {
             const items = document.querySelectorAll('.menu-item');
             let visibleCount = 0;
 
             items.forEach(item => {
                 const category = item.dataset.category;
-                const tags = item.dataset.tags.split(',');
-                const price = parseFloat(item.dataset.price);
-                const name = item.querySelector('.item-name').textContent.toLowerCase();
-                const description = item.querySelector('.item-description').textContent.toLowerCase();
+                const tags = item.dataset.tags.split(',').filter(t => t);
+                const ingredients = item.dataset.ingredients.split(',').filter(i => i);
 
                 let isVisible = true;
 
-                // Filtro de categoria
-                if (currentFilters.category !== 'todos' && category !== currentFilters.category) {
-                    isVisible = false;
+                // Filtro de categorias (OR - qualquer categoria selecionada)
+                if (filters.categories.length > 0) {
+                    if (!filters.categories.includes(category)) {
+                        isVisible = false;
+                    }
                 }
 
-                // Filtro de tags (deve ter TODAS as tags selecionadas)
-                if (currentFilters.tags.length > 0) {
-                    const hasAllTags = currentFilters.tags.every(tag => tags.includes(tag));
-                    if (!hasAllTags) isVisible = false;
+                // Filtro de preferências (AND - deve ter todas as preferências)
+                if (filters.preferences.length > 0) {
+                    const hasAllPreferences = filters.preferences.every(pref => tags.includes(pref));
+                    if (!hasAllPreferences) {
+                        isVisible = false;
+                    }
                 }
 
-                // Filtro de preço
-                if (price > currentFilters.maxPrice) {
-                    isVisible = false;
-                }
-
-                // Filtro de pesquisa
-                if (currentFilters.search) {
-                    const searchTerm = currentFilters.search.toLowerCase();
-                    if (!name.includes(searchTerm) && !description.includes(searchTerm)) {
+                // Filtro de ingredientes (OR - qualquer ingrediente selecionado)
+                if (filters.ingredients.length > 0) {
+                    const hasAnyIngredient = filters.ingredients.some(ing => ingredients.includes(ing));
+                    if (!hasAnyIngredient) {
                         isVisible = false;
                     }
                 }
@@ -238,57 +259,108 @@
                 }
             });
 
-            // Atualizar contador
             resultsCount.textContent = visibleCount;
-
-            // Mostrar mensagem se não houver resultados
             noResults.style.display = visibleCount === 0 ? 'block' : 'none';
         }
 
-        // ===== EVENT LISTENERS =====
+        function renderActiveFilters() {
+            const allFilters = [
+                ...filters.categories.map(f => ({ type: 'category', value: f, label: getCategoryLabel(f) })),
+                ...filters.preferences.map(f => ({ type: 'preference', value: f, label: getPreferenceLabel(f) })),
+                ...filters.ingredients.map(f => ({ type: 'ingredient', value: f, label: capitalize(f) }))
+            ];
 
-        // Filtro de categoria
-        categoryButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                categoryButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilters.category = btn.dataset.category;
-                applyFilters();
+            if (allFilters.length === 0) {
+                activeFiltersBar.innerHTML = '';
+                return;
+            }
+
+            const tagsHTML = allFilters.map(f => `
+                <span class="active-filter-tag">${f.label}</span>
+            `).join('');
+
+            activeFiltersBar.innerHTML = `
+                ${tagsHTML}
+                <button class="clear-filters-btn" onclick="clearAllFilters()">
+                    🗑️ Limpar (${allFilters.length})
+                </button>
+            `;
+        }
+
+        function getCategoryLabel(value) {
+            const labels = {
+                'entradas': '🥗 Entradas',
+                'principais': '🍝 Principais',
+                'sobremesas': '🍰 Sobremesas',
+                'bebidas': '🍹 Bebidas'
+            };
+            return labels[value] || value;
+        }
+
+        function getPreferenceLabel(value) {
+            const labels = {
+                'vegetariano': '🥬 Vegetariano',
+                'vegano': '🌱 Vegano',
+                'sem-gluten': '🌾 Sem Glúten',
+                'picante': '🌶️ Picante',
+                'popular': '⭐ Popular'
+            };
+            return labels[value] || value;
+        }
+
+        function clearAllFilters() {
+            document.querySelectorAll('.filters-section input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
             });
-        });
-
-        // Filtro de tags
-        tagButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                btn.classList.toggle('active');
-                const tag = btn.dataset.tag;
-                
-                if (currentFilters.tags.includes(tag)) {
-                    currentFilters.tags = currentFilters.tags.filter(t => t !== tag);
-                } else {
-                    currentFilters.tags.push(tag);
-                }
-                
-                applyFilters();
-            });
-        });
-
-        // Filtro de preço
-        priceRange.addEventListener('input', (e) => {
-            currentFilters.maxPrice = parseFloat(e.target.value);
-            priceValue.textContent = currentFilters.maxPrice;
+            filters = { categories: [], preferences: [], ingredients: [] };
             applyFilters();
-        });
+            renderActiveFilters();
+        }
 
-        // Pesquisa (com debounce)
-        let searchTimeout;
-        searchInput.addEventListener('input', (e) => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                currentFilters.search = e.target.value;
-                applyFilters();
-            }, 300);
+        // ===== RENDERIZAR MENU =====
+        function createMenuItemHTML(item) {
+            const tagsHTML = item.tags.map(tag => {
+                const tagLabels = {
+                    'vegetariano': '🥬 Vegetariano',
+                    'vegano': '🌱 Vegano',
+                    'picante': '🌶️ Picante',
+                    'sem-gluten': '🌾 Sem Glúten',
+                    'popular': '⭐ Popular'
+                };
+                return `<span class="item-tag tag-${tag}">${tagLabels[tag] || tag}</span>`;
+            }).join('');
+
+            return `
+                <article class="menu-item" 
+                    data-category="${item.category}" 
+                    data-tags="${item.tags.join(',')}"
+                    data-ingredients="${item.ingredients.join(',')}">
+                    <img src="${item.image}" alt="${item.name}" class="item-image" loading="lazy">
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3 class="item-name">${item.name}</h3>
+                            <span class="item-price">€${item.price.toFixed(2)}</span>
+                        </div>
+                        <p class="item-description">${item.description}</p>
+                        <div class="item-tags">${tagsHTML}</div>
+                        <div class="item-ingredients">
+                            <span>Ingredientes:</span> ${item.ingredients.map(capitalize).join(', ')}
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderMenu() {
+            menuGrid.innerHTML = menuData.map(createMenuItemHTML).join('');
+            applyFilters();
+        }
+
+        // ===== EVENT LISTENERS =====
+        document.querySelectorAll('#categoryFilters input, #preferenceFilters input').forEach(checkbox => {
+            checkbox.addEventListener('change', handleFilterChange);
         });
 
         // ===== INICIALIZAÇÃO =====
+        generateIngredientCheckboxes();
         renderMenu();
