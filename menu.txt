@@ -1,27 +1,24 @@
-Restaurante Copo Cheio
 
-Entradas
-Pão e manteiga
-Azeitonas
-Enchidos
+description: "Couvert de pão, manteiga e azeite, artigos separados
 
-Prato principal
-Cozido à portuguesa
-Bacalhau à Brás
-Risotto de cogumelos
+description: "Taça de azeitonas temperadas",
 
-Sobremesas
-Mousse de chocolate
-Pão de ló
-Salada de fruta
+description: "Tábua com presunto, chouriço, salame, e alheira, que acompanha com pão e torras",
 
-Bebidas
-Água
-Sumo
-Vinho
+description: "Prato típico português composto por uma variedade de carnes e legumes.",
 
+description: "Prato típico português feito com bacalhau e batata",
 
-tags
-gluten
-lactose
-vegetariano
+description: "Arroz arbóreo cremoso com mix de cogumelos selvagens e parmesão",
+
+description: "Sobremesa caseira feita à base de chocolate",
+
+description: "Doce típico português à base de ovos e farinha",
+
+description: "Taça de salada de fruta",
+
+description: "Jarro de água fresca da nascente",
+
+description: "Sumo fresco",
+
+description: "Sumo de uva fermetado nas melhores barricas",
