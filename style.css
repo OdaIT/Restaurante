@@ -8,7 +8,7 @@ body {
   background: #ffffff;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -19,7 +19,7 @@ body {
 header {
   grid-column: 1 / -1; /* Ocupa as 3 colunas propositadamente */
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Replica o grid do body */
+  grid-template-columns: 1fr 3fr 1fr; /* Replica o grid do body */
   align-items: center;
   height: 100vh;
   background: url(Images/taberna.png) center/cover no-repeat;
