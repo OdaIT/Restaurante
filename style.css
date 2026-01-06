@@ -226,6 +226,50 @@ footer {
   transform: scale(1.05);
 }
 
+/* Esconder items filtrados */
+.menu-item.hidden {
+  display: none;
+}
+
+/* Filtros ativos */
+.active-filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.active-filter-tag {
+  padding: 0.3rem 0.8rem;
+  background: rgba(139, 0, 0, 0.2);
+  border: 1px solid #8B0000;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  color: #8B0000;
+}
+
+.clear-filters-btn {
+  padding: 0.4rem 0.8rem;
+  background: rgba(200, 0, 0, 0.1);
+  border: 1px solid #c00;
+  color: #c00;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-left: auto;
+  position: relative;
+  top: auto;
+  transform: none;
+  width: auto;
+  height: auto;
+}
+
+.clear-filters-btn:hover {
+  background: #c00;
+  color: #fff;
+}
+
 /* Botões */
 button {
   position: absolute;
