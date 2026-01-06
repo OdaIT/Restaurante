@@ -96,14 +96,27 @@ footer {
 }
 
 /* Flip cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.cards-container figure {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== FLIP CARDS ===== */
 .flip-card {
-  /* container */
-  width: 300px;
+  width: 100%;
+  max-width: 320px;
   height: 400px;
   perspective: 1000px;
 }
 
-/* Elemento que roda */
 .flip-card-inner {
   width: 100%;
   height: 100%;
@@ -112,23 +125,105 @@ footer {
   transform-style: preserve-3d;
 }
 
-/* Hover ativa o flip */
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Ambas as faces */
 .flip-card-front,
 .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Verso já está rodado */
+/* FRENTE */
+.flip-card-front {
+  background: #fff;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+}
+
+.flip-card-front .content {
+  padding: 1rem;
+  text-align: center;
+}
+
+.flip-card-front .content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.flip-card-front .content p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* VERSO */
 .flip-card-back {
   transform: rotateY(180deg);
+  background: linear-gradient(135deg, #8B0000 0%, #5c1a1a 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.flip-card-back h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.flip-card-back p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.flip-card-back .tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.flip-card-back .tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+}
+
+.flip-card-back .btn {
+  position: relative;
+  top: auto;
+  transform: none;
+  padding: 0.7rem 1.5rem;
+  background: #fff;
+  color: #8B0000;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: auto;
+  height: auto;
+}
+
+.flip-card-back .btn:hover {
+  transform: scale(1.05);
 }
 
 /* Botões */
