@@ -17,10 +17,8 @@ body {
 }
 
 header {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-column: 2;
   align-items: center;
-  grid-column: 1 / -1;
   height: 100vh;
   width: 100vw;
   background: url(Images/taberna.png) center/cover no-repeat;
