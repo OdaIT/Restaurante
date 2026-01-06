@@ -17,10 +17,11 @@ body {
 }
 
 header {
-  grid-column: 2;
+  grid-column: 1 / -1; /* Ocupa as 3 colunas propositadamente */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Replica o grid do body */
   align-items: center;
   height: 100vh;
-  width: 100vw;
   background: url(Images/taberna.png) center/cover no-repeat;
 }
 
