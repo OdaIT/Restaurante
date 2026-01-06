@@ -37,14 +37,12 @@
             </div>
             <div class="checkbox-item category">
               <input type="checkbox" id="cat-principais" value="principais" />
-              <label class="checkbox-label" for="cat-principais">
-                Prato Principal</label
+              <label class="checkbox-label" for="cat-principais">Prato Principal</label
               >
             </div>
             <div class="checkbox-item category">
               <input type="checkbox" id="cat-sobremesas" value="sobremesas" />
-              <label class="checkbox-label" for="cat-sobremesas"
-                >Sobremesa</label
+              <label class="checkbox-label" for="cat-sobremesas">Sobremesa</label
               >
             </div>
             <div class="checkbox-item category">
@@ -56,44 +54,20 @@
 
         <!-- Preferências Dietéticas -->
         <div class="filter-group">
-          <span class="filter-label">Preferências</span>
+          <span class="filter-label">Intolerâncias</span>
           <div class="checkbox-group" id="preferenceFilters">
             <div class="checkbox-item preference">
-              <input
-                type="checkbox"
-                id="pref-vegetariano"
-                value="vegetariano"
-              />
-              <label class="checkbox-label" for="pref-vegetariano"
-                >Vegetariano</label
-              >
+              <input type="checkbox" id="vegetariano" value="vegetariano" />
+              <label class="checkbox-label" for="vegetariano">Vegetariano</label>
             </div>
             <div class="checkbox-item preference">
-              <input type="checkbox" id="pref-vegano" value="vegano" />
-              <label class="checkbox-label" for="pref-vegano">Vegano</label>
+              <input type="checkbox" id="gluten" value="gluten" />
+              <label class="checkbox-label" for="gluten">Sem Glúten</label>
             </div>
             <div class="checkbox-item preference">
-              <input type="checkbox" id="pref-sem-gluten" value="sem-gluten" />
-              <label class="checkbox-label" for="pref-sem-gluten"
-                >Sem Glúten</label
-              >
+              <input type="checkbox" id="lactose" value="lactose" />
+              <label class="checkbox-label" for="lactose">Sem Lactose</label>
             </div>
-            <div class="checkbox-item preference">
-              <input type="checkbox" id="pref-picante" value="picante" />
-              <label class="checkbox-label" for="pref-picante">Picante</label>
-            </div>
-            <div class="checkbox-item preference">
-              <input type="checkbox" id="pref-popular" value="popular" />
-              <label class="checkbox-label" for="pref-popular">Popular</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ingredientes -->
-        <div class="filter-group">
-          <span class="filter-label">🥘 Ingredientes</span>
-          <div class="checkbox-group" id="ingredientFilters">
-            <!-- Gerado via JavaScript -->
           </div>
         </div>
 
@@ -175,6 +149,7 @@
 
     <footer></footer>
 
-    <script src="script.js"></script>
+    <script src="checkbox.js"></script>
+    <script src="carousel.js"></script>
   </body>
 </html>
