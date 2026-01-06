@@ -6,7 +6,7 @@ const dots = carousel.querySelectorAll(".dot");
 const prevBtn = carousel.querySelector(".prev");
 const nextBtn = carousel.querySelector(".next");
 
-let i = 0; // Índice atual
+let i = 0; 
 
 function show(n) {
   i = (n + imgs.length) % imgs.length;
@@ -19,5 +19,5 @@ prevBtn.onclick = () => show(i - 1);
 nextBtn.onclick = () => show(i + 1);
 dots.forEach((d, idx) => (d.onclick = () => show(idx)));
 
-// Autoplay (opcional)
-setInterval(() => show(i + 1), 4000);
+// Autoplay
+setInterval(() => show(i + 1), 5000);
