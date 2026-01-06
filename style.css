@@ -65,6 +65,14 @@ footer {
   margin-bottom: 5px;
 }
 
+.filters-container {
+  grid-column: 2;
+}
+
+.galeria {
+  grid-column: 2;
+}
+
 .carousel {
   position: relative;
   width: 100%;
