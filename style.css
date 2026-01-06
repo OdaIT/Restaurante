@@ -45,23 +45,23 @@ header {
 nav,
 aside,
 main,
-#Menu,
+.menu,
 #Contactos,
 footer {
   grid-column: 2; /* Coluna central */
   width: 100%;
 }
 
-#Menu > section {
+.menu > section {
   width: 100%;
   margin-bottom: 50px;
 }
 
-#Menu h3 {
+.menu h3 {
   margin-bottom: 10px;
 }
 
-#Menu p {
+.menu p {
   margin-bottom: 5px;
 }
 
