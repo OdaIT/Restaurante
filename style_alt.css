@@ -14,6 +14,8 @@
       display: grid;
       grid-template-columns: 1fr 3fr 1fr; /* Replica o grid do body */
       align-items: center;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
       height: 100vh;
       background: url(Images/taberna_alt.png) center/cover no-repeat;
     }
