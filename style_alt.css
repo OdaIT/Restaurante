@@ -70,20 +70,22 @@ main {
 }
 
 .filtros label {
-  display: inline-flex;      /* Mantém checkbox à esquerda do texto */
+  display: inline-flex;      /* Checkbox à esquerda do texto */
   align-items: center;       /* Alinha verticalmente */
-  gap: 5px;                  /* Espaço entre checkbox e texto */
-  margin-right: 20px;
-  margin-top: 0;             /* Remove margin herdado da regra global */
+  gap: 8px;                  /* Espaço entre checkbox e texto */
+  margin-top: 0;             /* Remove margin herdado */
   font-weight: bold;
   cursor: pointer;
+  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.1rem);
 }
 
-.filtros p,
-.filtros label {
-  font-size: clamp(0.95rem, 1vw + 0.5rem, 1rem);
+/* Estilização das checkboxes (opcional) */
+.filtros input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2e7d32;     /* Cor quando selecionado */
+  cursor: pointer;
 }
-
 
 details {
   background: white;
