@@ -5,13 +5,11 @@
 }
 
 body {
-  background: #F5F0E8;
+  background: #f5f0e8;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: auto 1fr;
-  gap: 30px;                     /* ✅ Gap vertical e horizontal */
-  padding: 0 30px 30px;                /* ✅ Padding lateral + bottom */
+  grid-template-rows: auto auto;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -22,20 +20,18 @@ body {
 header {
   grid-column: 1 / -1;
   grid-row: 1;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;        /* ✅ Mesmas proporções */
-  gap: 30px;                                  /* ✅ Mesmo gap */
-  align-items: center;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   height: 100vh;
   background: url(Images/taberna_alt.png) center/cover no-repeat;
-  margin: 0 -30px;                            /* ✅ Compensa padding do body */
-  padding: 0 30px;                            /* ✅ Padding interno igual */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 main {
-  grid-column: 2;          
+  grid-column: 2;
+  padding: 10px 10px;
 }
 
 .apresentar {
@@ -56,23 +52,17 @@ main {
   margin-top: 20px;
 }
 
-.filtros-sidebar,
-main,
-.sidebar {
-  grid-row: 2;
-  align-self: start;                          /* ✅ Todos alinhados ao topo */
-  margin: 0;                                  /* ✅ Reset de margens */
-  padding: 0;                                 /* ✅ Reset de padding */
-}
-
 /* ----- FILTROS ----- */
 .filtros-sidebar {
   grid-column: 1;
+  grid-row: 2;
+  padding: 10px 10px;
+  background: lightcoral;
 }
 
 .filtros {
   position: sticky;
-  top: 20px;                           /* Distância do topo ao fazer scroll */
+  top: 20px; /* Distância do topo ao fazer scroll */
   background: white;
   padding: 15px 20px;
   border-radius: 8px;
@@ -102,12 +92,12 @@ main,
 .filtros input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  margin: 0;                           /* Remove margens default */
-  padding: 0;                          /* Remove padding default */
-  vertical-align: middle;              /* Alinha verticalmente */
+  margin: 0; /* Remove margens default */
+  padding: 0; /* Remove padding default */
+  vertical-align: middle; /* Alinha verticalmente */
   accent-color: #2e7d32;
   cursor: pointer;
-  flex-shrink: 0;                      /* Não encolhe */
+  flex-shrink: 0; /* Não encolhe */
 }
 
 details {
@@ -144,8 +134,8 @@ summary::-webkit-details-marker {
 
 .card {
   width: 100%;
-  aspect-ratio: 1/1;                 
-  min-height: 280px;                   
+  aspect-ratio: 1/1;
+  min-height: 280px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -166,7 +156,7 @@ summary::-webkit-details-marker {
   background: white;
   display: flex;
   flex-direction: column;
-  padding: clamp(10px, 2vw, 20px);     /* Padding responsivo */
+  padding: clamp(10px, 2vw, 20px); /* Padding responsivo */
   text-align: center;
 }
 
@@ -178,7 +168,7 @@ summary::-webkit-details-marker {
 
 .card-front img {
   max-width: 85%;
-  max-height: 55%;                     /* Percentagem da card */
+  max-height: 55%; /* Percentagem da card */
   width: auto;
   height: auto;
   border-radius: 12px;
@@ -255,6 +245,9 @@ summary::-webkit-details-marker {
 
 .sidebar {
   grid-column: 3;
+  grid-row: 2;
+  padding: 10px 10px;
+  background: lightblue;
 }
 
 .sidebar .container {
@@ -390,8 +383,9 @@ button:hover {
   }
 
   main {
-    grid-column: 1;
-    grid-row: 3;
+    grid-column: 2;
+    grid-row: 2;
+    background: lightgreen;
   }
 
   .sidebar {
@@ -425,16 +419,16 @@ button:hover {
 
   /* Imagem com flex-grow */
   .card-front img {
-    flex: 1 1 auto;                    /* Cresce para ocupar espaço */
+    flex: 1 1 auto; /* Cresce para ocupar espaço */
     max-width: 75%;
-    min-height: 0;                     /* Necessário para flex funcionar */
-    object-fit: contain;               /* Mantém proporção ao crescer */
+    min-height: 0; /* Necessário para flex funcionar */
+    object-fit: contain; /* Mantém proporção ao crescer */
     margin-bottom: 10px;
   }
 
   /* Título não cresce */
   .card-front h3 {
-    flex: 0 0 auto;                    /* Não cresce, tamanho fixo */
+    flex: 0 0 auto; /* Não cresce, tamanho fixo */
     font-size: 1rem;
   }
 
