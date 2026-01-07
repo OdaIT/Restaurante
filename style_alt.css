@@ -112,6 +112,12 @@ main {
   grid-column: 2;
 }
 
+#menutop {
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  margin-bottom: 20px;
+}
+
 #carta_menu h2 {
   font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
   margin-bottom: 20px;
