@@ -265,7 +265,7 @@ summary::-webkit-details-marker {
 #Contactos h2 {
   font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
   margin-bottom: 15px;
-  color: #2e7d32;
+  color: black;
 }
 
 #Contactos p {
