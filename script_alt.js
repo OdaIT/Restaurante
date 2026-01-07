@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       filtrar();
     });
 
+
 /**************** CONFIGURAÇÃO DO ESTABELECIMENTO ****************/
 // 0 = Domingo ... 6 = Sábado
 const closedWeekdays = [1]; // ex: segunda-feira fechada
@@ -35,11 +36,14 @@ const closedFixedDates = [
   '12-25'  // Natal
 ];
 
-// Horário de funcionamento (intervalos de 15 min)
+// Horário de funcionamento
 const openingHours = {
   start: '12:00',
   end: '22:00'
 };
+
+// Máximo de reservas por dia
+const maxReservationsPerDay = 5;
 /*****************************************************************/
 
 const calendar = document.getElementById('calendar');
@@ -47,8 +51,28 @@ const monthYear = document.getElementById('monthYear');
 const timeSelect = document.getElementById('time');
 const confirmationMessage = document.getElementById('confirmationMessage');
 
-let currentDate = new Date(); // mês atual automaticamente
+let currentDate = new Date(); // mês atual
 let selectedDay = null;
+
+/**************** RESERVAS (localStorage) ****************/
+function getReservationsByDate(dateKey) {
+  const data = localStorage.getItem('reservations');
+  const reservations = data ? JSON.parse(data) : {};
+  return reservations[dateKey] || [];
+}
+
+function saveReservation(dateKey, reservation) {
+  const data = localStorage.getItem('reservations');
+  const reservations = data ? JSON.parse(data) : {};
+
+  if (!reservations[dateKey]) {
+    reservations[dateKey] = [];
+  }
+
+  reservations[dateKey].push(reservation);
+  localStorage.setItem('reservations', JSON.stringify(reservations));
+}
+/**********************************************************/
 
 function renderCalendar() {
   calendar.querySelectorAll('.day, .empty').forEach(e => e.remove());
@@ -66,9 +90,9 @@ function renderCalendar() {
   monthYear.textContent = `${months[month]} de ${year}`;
 
   const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  today.setHours(0,0,0,0);
 
-  // Espaços vazios antes do dia 1
+  // Espaços antes do dia 1
   for (let i = 0; i < firstDay; i++) {
     const empty = document.createElement('div');
     empty.className = 'empty';
@@ -78,7 +102,10 @@ function renderCalendar() {
   for (let d = 1; d <= daysInMonth; d++) {
     const date = new Date(year, month, d);
     const weekday = date.getDay();
-    const mmdd = `${String(month + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const mmdd = `${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dateKey = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+
+    const reservationsCount = getReservationsByDate(dateKey).length;
 
     const day = document.createElement('div');
     day.className = 'day';
@@ -86,9 +113,10 @@ function renderCalendar() {
 
     // BLOQUEIOS
     if (
-      date < today ||                       // datas passadas
-      closedWeekdays.includes(weekday) ||   // dias da semana fechados
-      closedFixedDates.includes(mmdd)        // datas fixas anuais
+      date < today ||
+      closedWeekdays.includes(weekday) ||
+      closedFixedDates.includes(mmdd) ||
+      reservationsCount >= maxReservationsPerDay
     ) {
       day.classList.add('disabled');
     } else {
@@ -116,8 +144,8 @@ function generateTimes() {
   end.setHours(eh, em, 0, 0);
 
   while (current <= end) {
-    const hh = current.getHours().toString().padStart(2, '0');
-    const mm = current.getMinutes().toString().padStart(2, '0');
+    const hh = current.getHours().toString().padStart(2,'0');
+    const mm = current.getMinutes().toString().padStart(2,'0');
 
     const opt = document.createElement('option');
     opt.value = `${hh}:${mm}`;
@@ -128,7 +156,7 @@ function generateTimes() {
   }
 }
 
-// Navegação de meses
+// Navegação meses
 document.getElementById('prev').onclick = () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar();
@@ -150,10 +178,22 @@ document.getElementById('submit').onclick = () => {
     return;
   }
 
+  const dateKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth()+1).padStart(2,'0')}-${String(selectedDay).padStart(2,'0')}`;
+  const reservationsToday = getReservationsByDate(dateKey);
+
+  if (reservationsToday.length >= maxReservationsPerDay) {
+    alert('Este dia já atingiu o número máximo de reservas.');
+    return;
+  }
+
+  saveReservation(dateKey, { name, phone, time });
+
   confirmationMessage.textContent =
     `Reserva confirmada para ${selectedDay}/${currentDate.getMonth()+1}/${currentDate.getFullYear()} às ${time}. Obrigado, ${name}!`;
 
   confirmationMessage.classList.remove('hidden');
+
+  renderCalendar(); // atualiza o calendário após reservar
 };
 
 // Inicialização
