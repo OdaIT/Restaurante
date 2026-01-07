@@ -374,10 +374,13 @@
       <select id="time"></select>
 
       <label for="name">Nome</label>
-      <input id="name" type="text" />
+      <input id="name" type="text" minlength="10"/>
 
       <label for="phone">Contacto Telefónico</label>
-      <input id="phone" type="tel" />
+      <input id="phone" type="tel" maxlength="9" />
+
+      <label for="numpessoas">Número de pessoas</label>
+      <input id="numpessoas" type="number" max="10" />
 
       <button id="submit">Confirmar Reserva</button>
 
