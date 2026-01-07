@@ -216,12 +216,6 @@ summary::-webkit-details-marker {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  font-size: 20px;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
 .calendar-header {
   display: flex;
   justify-content: space-between;
