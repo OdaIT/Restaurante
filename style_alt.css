@@ -29,7 +29,6 @@ header {
 
 .apresentar {
   grid-column: 2; /* Texto na coluna central */
-  color: white; /* Ajusta conforme a imagem */
   text-align: start;
 }
 
@@ -43,7 +42,8 @@ header {
 }
 
 main {
-  max-width: 1000px;
+  grid-column: 2; /* Texto na coluna central */
+  flex: 1;
   margin: 30px auto;
   padding: 0 20px;
 }
