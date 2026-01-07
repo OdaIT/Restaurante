@@ -406,16 +406,31 @@ button:hover {
   }
 
   .card {
-    aspect-ratio: 5 / 4;               /* Mais largo em mobile */
+    aspect-ratio: 5 / 4;
     min-height: 220px;
   }
 
-  .card-front img {
-    max-height: 50%;
-    max-width: 75%;
+  /* Ajuste do layout da frente da card */
+  .card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
   }
 
+  /* Imagem com flex-grow */
+  .card-front img {
+    flex: 1 1 auto;                    /* Cresce para ocupar espaço */
+    max-width: 75%;
+    min-height: 0;                     /* Necessário para flex funcionar */
+    object-fit: contain;               /* Mantém proporção ao crescer */
+    margin-bottom: 10px;
+  }
+
+  /* Título não cresce */
   .card-front h3 {
+    flex: 0 0 auto;                    /* Não cresce, tamanho fixo */
     font-size: 1rem;
   }
 
@@ -442,5 +457,53 @@ button:hover {
 
   .apresentar p {
     font-size: 1rem;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .menu {
+    max-width: 320px;
+  }
+
+  .card {
+    aspect-ratio: 1 / 1;
+    min-height: 200px;
+  }
+
+  .card-front {
+    padding: 12px;
+  }
+
+  /* Imagem com flex-grow */
+  .card-front img {
+    flex: 1 1 auto;
+    max-width: 70%;
+    min-height: 0;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+
+  .card-front h3 {
+    flex: 0 0 auto;
+    font-size: 0.95rem;
+  }
+
+  .card-back {
+    padding: 12px;
+  }
+
+  .card-back p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .card-back .tags span {
+    font-size: 0.65rem;
+    padding: 2px 5px;
+  }
+
+  .filtros label {
+    font-size: 0.9rem;
   }
 }
