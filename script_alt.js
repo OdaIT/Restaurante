@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const confirmationMessage = document.getElementById('confirmationMessage');
   const nameInput = document.getElementById('name');
   const phoneInput = document.getElementById('phone');
-  const numPessoasInput = document.getElementById('numpessoas'); // ✅ NOVO
+  const numPessoasInput = document.getElementById('numpessoas'); 
 
   let currentDate = new Date();
   let selectedDay = null;
@@ -178,9 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = nameInput.value.trim();
     const phone = phoneInput.value.trim();
     const time = timeSelect.value;
-    const numPessoas = numPessoasInput.value; // ✅ NOVO
+    const numPessoas = numPessoasInput.value; 
 
-    // ✅ VALIDAÇÃO ATUALIZADA
+    // VALIDAÇÃO ATUALIZADA
     if (!selectedDay || !time || !name || !phone || !numPessoas) {
       alert('Preencha todos os campos e selecione data e hora.');
       return;
@@ -212,10 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // ✅ GUARDAR COM NÚMERO DE PESSOAS
+    // GUARDAR COM NÚMERO DE PESSOAS
     saveReservation(dateKey, { name, phone, time, numPessoas });
 
-    // ✅ MENSAGEM ATUALIZADA
+    // MENSAGEM ATUALIZADA
     confirmationMessage.textContent =
       `Reserva confirmada para ${selectedDay}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()} às ${time} para ${numPessoas} pessoa(s). Obrigado, ${name}!`;
 
