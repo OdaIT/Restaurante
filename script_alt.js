@@ -25,14 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
       filtrar();
     });
 
-    /**************** CONFIGURAÇÃO DO ESTABELECIMENTO ****************/
-const closedWeekdays = [1]; // 0=Domingo ... 6=Sábado
+/**************** CONFIGURAÇÃO DO ESTABELECIMENTO ****************/
+// 0 = Domingo ... 6 = Sábado
+const closedWeekdays = [1]; // ex: segunda-feira fechada
 
+// Datas fixas encerradas todos os anos (MM-DD)
 const closedFixedDates = [
   '01-01', // Ano Novo
   '12-25'  // Natal
 ];
 
+// Horário de funcionamento (intervalos de 15 min)
 const openingHours = {
   start: '12:00',
   end: '22:00'
@@ -44,7 +47,7 @@ const monthYear = document.getElementById('monthYear');
 const timeSelect = document.getElementById('time');
 const confirmationMessage = document.getElementById('confirmationMessage');
 
-let currentDate = new Date();
+let currentDate = new Date(); // mês atual automaticamente
 let selectedDay = null;
 
 function renderCalendar() {
@@ -55,9 +58,17 @@ function renderCalendar() {
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  const months = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  const months = [
+    'janeiro','fevereiro','março','abril','maio','junho',
+    'julho','agosto','setembro','outubro','novembro','dezembro'
+  ];
+
   monthYear.textContent = `${months[month]} de ${year}`;
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Espaços vazios antes do dia 1
   for (let i = 0; i < firstDay; i++) {
     const empty = document.createElement('div');
     empty.className = 'empty';
@@ -67,13 +78,18 @@ function renderCalendar() {
   for (let d = 1; d <= daysInMonth; d++) {
     const date = new Date(year, month, d);
     const weekday = date.getDay();
-    const mmdd = `${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const mmdd = `${String(month + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
 
     const day = document.createElement('div');
     day.className = 'day';
     day.textContent = d;
 
-    if (closedWeekdays.includes(weekday) || closedFixedDates.includes(mmdd)) {
+    // BLOQUEIOS
+    if (
+      date < today ||                       // datas passadas
+      closedWeekdays.includes(weekday) ||   // dias da semana fechados
+      closedFixedDates.includes(mmdd)        // datas fixas anuais
+    ) {
       day.classList.add('disabled');
     } else {
       day.onclick = () => {
@@ -100,8 +116,8 @@ function generateTimes() {
   end.setHours(eh, em, 0, 0);
 
   while (current <= end) {
-    const hh = current.getHours().toString().padStart(2,'0');
-    const mm = current.getMinutes().toString().padStart(2,'0');
+    const hh = current.getHours().toString().padStart(2, '0');
+    const mm = current.getMinutes().toString().padStart(2, '0');
 
     const opt = document.createElement('option');
     opt.value = `${hh}:${mm}`;
@@ -112,6 +128,7 @@ function generateTimes() {
   }
 }
 
+// Navegação de meses
 document.getElementById('prev').onclick = () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar();
@@ -122,6 +139,7 @@ document.getElementById('next').onclick = () => {
   renderCalendar();
 };
 
+// Submeter reserva
 document.getElementById('submit').onclick = () => {
   const name = document.getElementById('name').value.trim();
   const phone = document.getElementById('phone').value.trim();
@@ -132,9 +150,12 @@ document.getElementById('submit').onclick = () => {
     return;
   }
 
-  confirmationMessage.textContent = `Reserva confirmada para ${selectedDay}/${currentDate.getMonth()+1}/${currentDate.getFullYear()} às ${time}. Obrigado, ${name}!`;
+  confirmationMessage.textContent =
+    `Reserva confirmada para ${selectedDay}/${currentDate.getMonth()+1}/${currentDate.getFullYear()} às ${time}. Obrigado, ${name}!`;
+
   confirmationMessage.classList.remove('hidden');
 };
 
+// Inicialização
 generateTimes();
 renderCalendar();
