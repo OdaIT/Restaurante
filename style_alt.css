@@ -9,9 +9,9 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: auto 1fr; 
-  gap: 0 20px;                         /* ✅ Gap horizontal entre colunas */
-  padding: 0 20px; 
+  grid-template-rows: auto 1fr;
+  gap: 30px 20px;                      /* ✅ Gap vertical e horizontal */
+  padding: 0 20px 30px;                /* ✅ Padding lateral + bottom */
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -21,7 +21,7 @@ body {
 
 header {
   grid-column: 1 / -1;
-  grid-row: 1; 
+  grid-row: 1;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
@@ -30,14 +30,12 @@ header {
   height: 100vh;
   background: url(Images/taberna_alt.png) center/cover no-repeat;
   margin: 0 -20px;                     /* ✅ Compensa o padding do body */
-  padding: 0 20px;
 }
 
 main {
   grid-column: 2;
   grid-row: 2;
-  width: 100%;
-  margin-top: 30px;
+  align-self: start;                   /* ✅ Alinha ao topo */
 }
 
 .apresentar {
@@ -62,7 +60,7 @@ main {
 .filtros-sidebar {
   grid-column: 1;
   grid-row: 2;
-  margin-top: 30px;
+  align-self: start;                   /* ✅ Alinha ao topo */
 }
 
 .filtros {
@@ -251,7 +249,7 @@ summary::-webkit-details-marker {
 .sidebar {
   grid-column: 3;
   grid-row: 2;
-  margin-top: 30px;
+  align-self: start;                   /* ✅ Alinha ao topo */
 }
 
 .sidebar .container {
