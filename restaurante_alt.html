@@ -2,26 +2,355 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Restaurante Fictício CopoCheio" />
   <title>Restaurante CopoCheio</title>
   <link rel="icon" type="image/svg+xml" href="Images/copovinho.svg" />
-  <link rel="stylesheet" href="style_alt.css">
+  <link rel="stylesheet" href="style_alt.css" />
 </head>
 
 <body>
 
-<header>
-  <section class="apresentar">
-    <h1>Copo Cheio</h1>
-    <h3>Restaurante</h3>
-    <p>
-      Meio cheio é para os fracos.<br />
-      Aqui é até à borda.
-    </p>
-  </section>
-</header>
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <section class="apresentar">
+      <h1>Copo Cheio</h1>
+      <h3>Restaurante</h3>
+      <p>
+        Meio cheio é para os fracos.<br />
+        Aqui é até à borda.
+      </p>
+    </section>
+  </header>
 
-<aside class="sidebar">
+  <!-- ==================== SIDEBAR FILTROS (Esquerda) ==================== -->
+  <aside class="filtros-sidebar">
+    <div class="filtros">
+      <p><strong>Filtrar menu:</strong></p>
+      <label><input type="checkbox" id="vegetariano" /> Vegetariano</label>
+      <label><input type="checkbox" id="sem-lactose" /> Sem lactose</label>
+      <label><input type="checkbox" id="sem-gluten" /> Sem glúten</label>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+    <section id="carta_menu">
+      <h2>Menu</h2>
+
+      <!-- ===== ENTRADAS ===== -->
+      <details open>
+        <summary><h3>Entradas</h3></summary>
+        <div class="menu">
+
+          <div class="item" data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/couvert.png" alt="couvert com pão" />
+                <h3>Couvert de pão</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Couvert de pão, manteiga e azeite</p>
+                <div class="tags">
+                  <span>Sem Lactose</span>
+                  <span>Vegetariano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/azeitonas.png" alt="taça com azeitonas" />
+                <h3>Taça de azeitonas</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Taça de azeitonas temperadas</p>
+                <div class="tags">
+                  <span>Sem glúten</span>
+                  <span>Sem Lactose</span>
+                  <span>Vegetariano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-lactose>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/enchidos.png" alt="tabua de enchidos" />
+                <h3>Tábua de enchidos</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Tábua com presunto, chouriço, salame, e alheira, que acompanha com pão e torras</p>
+                <div class="tags">
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/ovos.png" alt="Prato de ovos rotos" />
+                <h3>Ovos rotos</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Prato confecionado com batata frita, presunto e ovos</p>
+                <div class="tags">
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- ===== PRATO PRINCIPAL ===== -->
+      <details open>
+        <summary><h3>Prato Principal</h3></summary>
+        <div class="menu">
+
+          <div class="item" data-sem-lactose>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/cozido.png" alt="Cozido à Portuguesa" />
+                <h3>Cozido à portuguesa</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Prato típico português composto por uma variedade de carnes e legumes</p>
+                <div class="tags">
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/bacalhau.png" alt="Bacalhau à Brás" />
+                <h3>Bacalhau à Brás</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Prato típico português feito com bacalhau e batata</p>
+                <div class="tags">
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/risotto.png" alt="Risotto de cogumelos" />
+                <h3>Risotto de cogumelos</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Arroz arbóreo cremoso com mix de cogumelos selvagens e parmesão</p>
+                <div class="tags">
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                  <span>Vegetariano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/pato.png" alt="Arroz de pato" />
+                <h3>Arroz de pato</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Prato típico português feito com arroz e carne de pato, como o próprio nome indica</p>
+                <div class="tags">
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- ===== SOBREMESAS ===== -->
+      <details open>
+        <summary><h3>Sobremesas</h3></summary>
+        <div class="menu">
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/mousse.png" alt="Taça de mousse de chocolate" />
+                <h3>Mousse de chocolate</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Sobremesa caseira feita à base de chocolate</p>
+                <div class="tags">
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                  <span>Vegetariano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/paodelo.png" alt="Pão de ló" />
+                <h3>Pão de ló</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Doce típico português à base de ovos e farinha</p>
+                <div class="tags">
+                  <span>Vegetariano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/salada.png" alt="Taça de salada de fruta" />
+                <h3>Salada de fruta</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Taça de salada de fruta fresca da época</p>
+                <div class="tags">
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                  <span>Vegetariano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/brigadeiro.png" alt="Bolo de brigadeiro" />
+                <h3>Bolo de brigadeiro</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Doce típico brasileiro à base de ovos e farinha e chocolate</p>
+                <div class="tags">
+                  <span>Vegetariano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- ===== BEBIDAS ===== -->
+      <details open>
+        <summary><h3>Bebidas</h3></summary>
+        <div class="menu">
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/agua.png" alt="Jarro de água" />
+                <h3>Água</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Jarro de água fresca da nascente</p>
+                <div class="tags">
+                  <span>Vegetariano</span>
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/sumo.png" alt="Copo de sumo de laranja" />
+                <h3>Sumo</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Sumo natural fresco</p>
+                <div class="tags">
+                  <span>Vegetariano</span>
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/vinhocheio.png" alt="Copo de vinho tinto" />
+                <h3>Copo de vinho</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Sumo de uva fermentado nas melhores barricas nacionais</p>
+                <div class="tags">
+                  <span>Vegetariano</span>
+                  <span>Sem glúten</span>
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images/cerveja.png" alt="Caneca de cerveja" />
+                <h3>Caneca de cerveja</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Cerveja artesanal feita com amor e carinho</p>
+                <div class="tags">
+                  <span>Vegetariano</span>
+                  <span>Sem lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+    </section>
+
+    <!-- ===== CONTACTOS ===== -->
+    <section id="Contactos">
+      <h2>Contactos</h2>
+      <p>Contacto telefónico - 234567890</p>
+      <p>Fax - 234666666</p>
+      <p>Morada - Rua dos Queimados - 3800-328 - Aveiro</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d314.981060339364!2d-8.628099052200612!3d40.66995020418298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23984e38b251ad%3A0x2a9181654f48788d!2sR.%20dos%20Queimados!5e1!3m2!1spt-PT!2spt!4v1767524902483!5m2!1spt-PT!2spt"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+  </main>
+
+  <!-- ==================== SIDEBAR RESERVAS (Direita) ==================== -->
+  <aside class="sidebar">
     <div class="container">
       <h1>Reserva</h1>
 
@@ -44,291 +373,19 @@
       <label for="time">Hora</label>
       <select id="time"></select>
 
-      <label>Nome</label>
-      <input id="name" />
+      <label for="name">Nome</label>
+      <input id="name" type="text" />
 
-      <label>Contacto Telefónico</label>
-      <input id="phone" />
+      <label for="phone">Contacto Telefónico</label>
+      <input id="phone" type="tel" />
 
       <button id="submit">Confirmar Reserva</button>
 
-      <div id="confirmationMessage" class="hidden" style="margin-top:12px;color:#065f46;background:#d1fae5;padding:10px;border-radius:6px;font-size:14px;"></div>
+      <div id="confirmationMessage" class="hidden"></div>
     </div>
   </aside>
-</div>
 
-<main>
-  <section id="carta_menu">
-  <h2>Menu</h2>
-
-  <!-- ===== CHECKBOXES ===== -->
-  <div class="filtros">
-    <p><strong>Filtrar menu:</strong></p>
-    <label><input type="checkbox" id="vegetariano"> Vegetariano</label>
-    <label><input type="checkbox" id="sem-lactose"> Sem lactose</label>
-    <label><input type="checkbox" id="sem-gluten"> Sem glúten</label>
-  </div>
-
-  <!-- ===== ENTRADAS ===== -->
-  <details open>
-    <summary><h3>Entradas</h3></summary>
-    <div class="menu">
-
-      <div class="item"data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\couvert.png" alt="couvert com pão">
-            <h3>Couvert de pão</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Couvert de pão, manteiga e azeite</p>
-            <div class="tags"><span>Sem Lactose</span><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\azeitonas.png" alt="taça com azeitonas">
-            <h3>Taça de azeitonas</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Taça de azeitonas temperadas</p>
-            <div class="tags"><span>Sem glúten</span><span>Sem Lactose</span><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-lactose>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\enchidos.png" alt="tabua de enchidos">
-            <h3>Tábua de enchidos</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Tábua com presunto, chouriço, salame, e alheira, que acompanha com pão e torras</p>
-            <div class="tags"><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-              <div class="item" data-sem-gluten data-sem-lactose>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\ovos.png" alt="Prato de ovos rotos">
-            <h3>Ovos rotos</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Prato confecionado com batata frita, presunto e ovos</p>
-            <div class="tags"><span>Sem glúten</span><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </details>
-
-  <!-- ===== PRATO PRINCIPAL ===== -->
-  <details open>
-    <summary><h3>Prato Principal</h3></summary>
-    <div class="menu">
-
-      <div class="item"data-sem-lactose>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\cozido.png" alt="Cozido à Portuguesa">
-            <h3>Cozido à portuguesa</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Prato típico português composto por uma variedade de carnes e legumes</p>
-            <div class="tags"><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\bacalhau.png" alt="Bacalhau à Brás">
-            <h3>Bacalhau à Brás</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Prato típico português feito com bacalhau e batata</p>
-            <div class="tags"><span>Sem glúten</span><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\risotto.png" alt="Risotto de cogumelos">
-            <h3>Risotto de cogumelos</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Arroz arbóreo cremoso com mix de cogumelos selvagens e parmesão</p>
-            <div class="tags"><span>Sem glúten</span><span>Sem lactose</span><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-            <div class="item" data-sem-gluten data-sem-lactose>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\pato.png" alt="Arroz de pato">
-            <h3>Arroz de pato</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Prato típico português feito com arroz e carne de pato, como o próprio nome indica</p>
-            <div class="tags"><span>Sem glúten</span><span>Sem lactose</span></div>
-          </div>
-        </div>
-        </div>
-
-    </div>
-  </details>
-
-  <!-- ===== SOBREMESAS ===== -->
-  <details open>
-    <summary><h3>Sobremesas</h3></summary>
-    <div class="menu">
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\mousse.png" alt=" Taça de mousse de chocolate">
-            <h3>Mousse de chocolate</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Sobremesa caseira feita à base de chocolate</p>
-            <div class="tags"><span>Sem glúten</span><span>Sem lactose</span><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\paodelo.png" alt="Pão de ló">
-            <h3>Pão de ló</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Doce típico português à base de ovos e farinha</p>
-            <div class="tags"><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\salada.png" alt="Taça de salada de fruta">
-            <h3>Salada de fruta</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Taça de salada de fruta fresca da época</p>
-            <div class="tags"><span>Sem glúten</span><span>Sem lactose</span><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\brigadeiro.png" alt="Bolo de brigadeiro">
-            <h3>Bolo de brigadeiro</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Doce típico brasileiro à base de ovos e farinha e chocolate</p>
-            <div class="tags"><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </details>
-
-  <!-- ===== BEBIDAS ===== -->
-  <details open>
-    <summary><h3>Bebidas</h3></summary>
-    <div class="menu">
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\agua.png" alt="Jarro de água">
-            <h3>Água</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Jarro de água fresca da nascente</p>
-            <div class="tags"><span>Vegetariano</span><span>Sem glúten</span><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\sumo.png" alt="Copo de sumo de laranja">
-            <h3>Sumo</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Sumo natural fresco</p>
-            <div class="tags"><span>Vegetariano</span><span>Sem glúten</span><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\vinhocheio.png" alt="Copo de vinho tinto">
-            <h3>Copo de vinho</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Sumo de uva fermetado nas melhores barricas nacionais</p>
-            <div class="tags"><span>Vegetariano</span><span>Sem glúten</span><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-            <div class="item" data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\cerveja.png" alt="Caneca de cerveja">
-            <h3>Caneca de cerveja</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Cerveja artesanal feita com amor e carinho</p>
-            <div class="tags"><span>Vegetariano</span><span>Sem lactose</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </details>
-</section>
-
-
-  <section id="Contactos">
-        <h2>Contactos</h2>
-        <p>Contacto telefónico - 234567890</p>
-        <p>Fax - 234666666</p>
-        <p>Morada - Rua dos Queimados - 3800-328 - Aveiro</p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d314.981060339364!2d-8.628099052200612!3d40.66995020418298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23984e38b251ad%3A0x2a9181654f48788d!2sR.%20dos%20Queimados!5e1!3m2!1spt-PT!2spt!4v1767524902483!5m2!1spt-PT!2spt"
-          width="600"
-          height="450"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-    </section>
-</main>
-
-<script src="script_alt.js"></script>
+  <script src="script_alt.js"></script>
 
 </body>
 </html>
