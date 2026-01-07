@@ -386,58 +386,110 @@ summary::-webkit-details-marker {
 
 /* ==================== MOBILE ==================== */
 @media (max-width: 768px) {
-  .content-wrapper {
-    grid-template-columns: 1fr;
-    max-width: 350px;  
-    gap: 20px;
+  
+  /* ===== HEADER ===== */
+  header {
+    grid-template-columns: 1fr;        /* ✅ Uma coluna */
+    justify-items: center;             /* ✅ Centra horizontalmente */
+    text-align: center;
     padding: 20px;
   }
 
+  .apresentar {
+    grid-column: 1;                    /* ✅ Reset para coluna única */
+    text-align: center;
+    width: 100%;                       /* ✅ Ocupa toda a largura */
+    max-width: 600px;                  /* ✅ Limite razoável para leitura */
+  }
+
+  /* ===== CONTENT WRAPPER ===== */
+  .content-wrapper {
+    grid-template-columns: 1fr;        /* ✅ Uma coluna */
+    width: 100%;                       /* ✅ CRESCE - ocupa tudo */
+    max-width: 100%;                   /* ✅ Remove limitação */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;             /* ✅ Centra os filhos */
+  }
+
+  /* ===== SIDEBARS ===== */
   .sidebar-left {
     grid-column: 1;
     grid-row: 1;
-    position: relative;                /* ✅ Remove sticky em mobile */
+    position: relative;
     top: 0;
-  }
-
-  main {
-    grid-column: 1;
-    grid-row: 2;
+    width: 100%;                       /* ✅ CRESCE */
+    max-width: 500px;                  /* ✅ Limite para não ficar muito largo */
   }
 
   .sidebar-right {
     grid-column: 1;
     grid-row: 3;
-    position: relative;                /* ✅ Remove sticky em mobile */
+    position: relative;
     top: 0;
+    width: 100%;                       /* ✅ CRESCE */
+    max-width: 500px;
   }
 
   .sidebar-box {
     position: relative;
     top: 0;
+    width: 100%;                       /* ✅ CRESCE dentro do parent */
   }
 
+  /* ===== MAIN ===== */
+  main {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;                       /* ✅ CRESCE */
+  }
+
+  #menutop {
+    text-align: center;                /* ✅ CENTRADO */
+  }
+
+  #carta_menu h2 {
+    text-align: center;                /* ✅ CENTRADO */
+  }
+
+  /* ===== MENU GRID ===== */
   .menu {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: 1fr;        /* ✅ Uma coluna */
+    width: 100%;                       /* ✅ CRESCE */
+    max-width: 100%;                   /* ✅ Remove limitação */
+    margin: 0 auto;
+    justify-items: center;             /* ✅ Centra os cards */
   }
 
+  /* ===== CARDS ===== */
   .item {
-    max-width: 100%;                   /* ✅ Ocupa toda a largura disponível */
+    width: 100%;                       /* ✅ CRESCE */
+    max-width: 400px;                  /* ✅ Limite para não distorcer */
+    margin: 0 auto;                    /* ✅ CENTRADO */
   }
 
   .card {
     aspect-ratio: 5 / 4;
     min-height: 220px;
+    max-height: none;                  /* ✅ Permite crescer */
   }
 
-  .apresentar {
+  /* ===== DETAILS ===== */
+  details {
+    width: 100%;                       /* ✅ CRESCE */
     text-align: center;
   }
 
-  #menutop {
-    text-align: start;                 /* ✅ Alinhado à esquerda em mobile */
+  summary {
+    text-align: center;                /* ✅ CENTRADO */
+  }
+
+  /* ===== CONTACTOS ===== */
+  #Contactos {
+    width: 100%;                       /* ✅ CRESCE */
+  }
+
+  #Contactos h2 {
+    text-align: center;                /* ✅ CENTRADO */
   }
 }
