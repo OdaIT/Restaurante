@@ -9,6 +9,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto 1fr; /* Header + conteúdo */
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -17,14 +18,23 @@ body {
 }
 
 header {
-  grid-column: 1 / -1; /* Ocupa as 3 colunas propositadamente */
+  grid-column: 1 / -1;
+  grid-row: 1; /* Primeira linha */
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr; /* Replica o grid do body */
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   height: 100vh;
   background: url(Images/taberna_alt.png) center/cover no-repeat;
+}
+
+main {
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  margin: 30px 0;
+  padding: 0 20px;
 }
 
 .apresentar {
@@ -43,13 +53,6 @@ header {
 .apresentar p {
   font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem);
   margin-top: 20px;
-}
-
-main {
-  grid-column: 2; /* Texto na coluna central */
-  width: 100%;
-  margin: 30px 0;
-  padding: 0 20px;
 }
 
 /* ----- FILTROS ----- */
@@ -204,9 +207,12 @@ summary::-webkit-details-marker {
 
 .sidebar {
   grid-column: 3;
+  grid-row: 2; /* Mesma linha que o main */
   position: sticky;
-  top: 24px;
-  align-self: start;
+  top: 20px; /* Distância do topo ao fazer scroll */
+  align-self: start; /* Impede que estique toda a altura */
+  height: fit-content; /* Altura ajustada ao conteúdo */
+  margin: 30px 20px 30px 0;
 }
 
 .container {
@@ -214,6 +220,12 @@ summary::-webkit-details-marker {
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
+  margin-bottom: 15px;
+  color: #2e7d32;
 }
 
 .calendar-header {
@@ -297,32 +309,67 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr; /* Uma só coluna */
+    grid-template-rows: auto auto auto; /* Header, sidebar, main */
+  }
+
+  header {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
   .menu {
     grid-template-columns: 1fr;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
   }
+
+  main {
+    grid-column: 1;
+    grid-row: 3; /* Depois da sidebar */
+  }
+
   .card-front h3 {
     font-size: 1.1rem; /* 👈 Força tamanho mínimo legível */
   }
+
   .card-back p {
     font-size: 1rem;
   }
+
   .card-back .tags span {
     font-size: 0.8rem;
     padding: 4px 8px;
   }
+
   summary {
     font-size: 1.25rem;
   }
+
+  .apresentar {
+    grid-column: 1;
+    text-align: center;
+  }
+
   .apresentar h1 {
     font-size: 2rem;
   }
+
   .apresentar h3 {
     font-size: 1.25rem;
   }
+
   .apresentar p {
     font-size: 1rem;
+  }
+
+  .sidebar {
+    grid-column: 1;
+    grid-row: 2; /* Antes do main em mobile */
+    position: relative; /* Remove sticky em mobile */
+    top: 0;
+    margin: 20px;
   }
 }
