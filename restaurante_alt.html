@@ -1,225 +1,228 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8" />
-  <title>Restaurante CopoCheio</title>
-  <descrition>Restaurante Ficticio CopoCheio</descrition>
-  <link rel="icon" type="image/svg+xml" href="Images/copovinho.svg" />
-  <link rel="stylesheet" href="style_alt.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Restaurante CopoCheio</title>
+    <descrition>Restaurante Ficticio CopoCheio</descrition>
+    <link rel="icon" type="image/svg+xml" href="Images/copovinho.svg" />
+    <link rel="stylesheet" href="style_alt.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <header>
+      <section class="apresentar">
+        <h1>Copo Cheio</h1>
+        <h3>Restaurante</h3>
+        <p>
+          Meio cheio é para os fracos.<br />
+          Aqui é até à borda.
+        </p>
+      </section>
+    </header>
 
-<header>
-  <section class="apresentar">
-    <h1>Copo Cheio</h1>
-    <h3>Restaurante</h3>
-    <p>
-      Meio cheio é para os fracos.<br />
-      Aqui é até à borda.
-    </p>
-  </section>
-</header>
-
-<main>
-
-  <!-- ===== CHECKBOXES ===== -->
-  <div class="filtros">
-    <p><strong>Filtrar menu:</strong></p>
-    <label><input type="checkbox" id="vegetariano"> Vegetariano</label>
-    <label><input type="checkbox" id="sem-lactose"> Sem lactose</label>
-    <label><input type="checkbox" id="sem-gluten"> Sem glúten</label>
-  </div>
-
-  <!-- ===== ENTRADAS ===== -->
-  <details open>
-    <summary>Entradas</summary>
-    <div class="menu">
-
-      <div class="item"data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\couvert.png">
-            <h3>Couvert de pão</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Couvert de pão, manteiga e azeite</p>
-            <div class="tags"><span>Vegetariano</span><span>Sem Lactose</span></div>
-          </div>
-        </div>
+    <main>
+      <!-- ===== CHECKBOXES ===== -->
+      <div class="filtros">
+        <p><strong>Filtrar menu:</strong></p>
+        <label><input type="checkbox" id="vegetariano" /> Vegetariano</label>
+        <label><input type="checkbox" id="sem-lactose" /> Sem lactose</label>
+        <label><input type="checkbox" id="sem-gluten" /> Sem glúten</label>
       </div>
 
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\azeitonas.png">
-            <h3>Taça de azeitonas</h3>
+      <!-- ===== ENTRADAS ===== -->
+      <details open>
+        <summary>Entradas</summary>
+        <div class="menu">
+          <div class="item" data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\couvert.png" />
+                <h3>Couvert de pão</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Couvert de pão, manteiga e azeite</p>
+                <div class="tags">
+                  <span>Vegetariano</span><span>Sem Lactose</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-face card-back">
-            <p>Taça de azeitonas temperadas</p>
-            <div class="tags"><span>Vegetariano</span><span>Sem glúten</span><span>Sem Lactose</span></div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\azeitonas.png" />
+                <h3>Taça de azeitonas</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Taça de azeitonas temperadas</p>
+                <div class="tags">
+                  <span>Vegetariano</span><span>Sem glúten</span
+                  ><span>Sem Lactose</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\enchidos.png" />
+                <h3>Tábua de enchidos</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Seleção de enchidos tradicionais.</p>
+                <div class="tags"><span>Tradicional</span></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </details>
 
-      <div class="item" >
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\enchidos.png">
-            <h3>Tábua de enchidos</h3>
+      <!-- ===== PRATO PRINCIPAL ===== -->
+      <details open>
+        <summary>Prato Principal</summary>
+        <div class="menu">
+          <div class="item" data-sem-gluten data-sem-lactose>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\cozido.png" />
+                <h3>Cozido à portuguesa</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Carnes e legumes cozidos.</p>
+                <div class="tags"><span>Tradicional</span></div>
+              </div>
+            </div>
           </div>
-          <div class="card-face card-back">
-            <p>Seleção de enchidos tradicionais.</p>
-            <div class="tags"><span>Tradicional</span></div>
+
+          <div class="item" data-sem-gluten data-sem-lactose>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\bacalhau.png" />
+                <h3>Bacalhau à Brás</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Bacalhau com ovo e batata.</p>
+                <div class="tags"><span>Sem glúten</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-vegetariano data-sem-gluten data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\risotto.png" />
+                <h3>Risotto de cogumelos</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Risotto cremoso.</p>
+                <div class="tags"><span>Vegetariano</span></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </details>
 
-    </div>
-  </details>
-
-  <!-- ===== PRATO PRINCIPAL ===== -->
-  <details open>
-    <summary>Prato Principal</summary>
-    <div class="menu">
-
-      <div class="item" data-sem-gluten data-sem-lactose>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\cozido.png">
-            <h3>Cozido à portuguesa</h3>
+      <!-- ===== SOBREMESAS ===== -->
+      <details open>
+        <summary>Sobremesas</summary>
+        <div class="menu">
+          <div class="item" data-vegetariano data-sem-gluten data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\mousse.png" />
+                <h3>Mousse de chocolate</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Mousse cremosa.</p>
+                <div class="tags"><span>Vegetariano</span></div>
+              </div>
+            </div>
           </div>
-          <div class="card-face card-back">
-            <p>Carnes e legumes cozidos.</p>
-            <div class="tags"><span>Tradicional</span></div>
+
+          <div class="item" data-vegetariano data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\paodelo.png" />
+                <h3>Pão de ló</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Bolo tradicional.</p>
+                <div class="tags"><span>Vegetariano</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\salada.png" />
+                <h3>Salada de fruta</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Fruta fresca.</p>
+                <div class="tags">
+                  <span>Vegetariano</span><span>Sem glúten</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </details>
 
-      <div class="item" data-sem-gluten data-sem-lactose>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\bacalhau.png">
-            <h3>Bacalhau à Brás</h3>
+      <!-- ===== BEBIDAS ===== -->
+      <details open>
+        <summary>Bebidas</summary>
+        <div class="menu">
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\agua.png" />
+                <h3>Água</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Água mineral.</p>
+                <div class="tags"><span>Sem glúten</span></div>
+              </div>
+            </div>
           </div>
-          <div class="card-face card-back">
-            <p>Bacalhau com ovo e batata.</p>
-            <div class="tags"><span>Sem glúten</span></div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\sumo.png" />
+                <h3>Sumo</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Sumo natural.</p>
+                <div class="tags"><span>Sem glúten</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
+            <div class="card">
+              <div class="card-face card-front">
+                <img src="Images\vinhocheio.png" />
+                <h3>Vinho</h3>
+              </div>
+              <div class="card-face card-back">
+                <p>Vinho nacional.</p>
+                <div class="tags"><span>Sem glúten</span></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </details>
 
-      <div class="item" data-vegetariano data-sem-gluten data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\risotto.png">
-            <h3>Risotto de cogumelos</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Risotto cremoso.</p>
-            <div class="tags"><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </details>
-
-  <!-- ===== SOBREMESAS ===== -->
-  <details open>
-    <summary>Sobremesas</summary>
-    <div class="menu">
-
-      <div class="item" data-vegetariano data-sem-gluten data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\mousse.png">
-            <h3>Mousse de chocolate</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Mousse cremosa.</p>
-            <div class="tags"><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-vegetariano data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\paodelo.png">
-            <h3>Pão de ló</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Bolo tradicional.</p>
-            <div class="tags"><span>Vegetariano</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\salada.png">
-            <h3>Salada de fruta</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Fruta fresca.</p>
-            <div class="tags"><span>Vegetariano</span><span>Sem glúten</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </details>
-
-  <!-- ===== BEBIDAS ===== -->
-  <details open>
-    <summary>Bebidas</summary>
-    <div class="menu">
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\agua.png">
-            <h3>Água</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Água mineral.</p>
-            <div class="tags"><span>Sem glúten</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\sumo.png">
-            <h3>Sumo</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Sumo natural.</p>
-            <div class="tags"><span>Sem glúten</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item" data-sem-gluten data-sem-lactose data-vegetariano>
-        <div class="card">
-          <div class="card-face card-front">
-            <img src="Images\vinhocheio.png">
-            <h3>Vinho</h3>
-          </div>
-          <div class="card-face card-back">
-            <p>Vinho nacional.</p>
-            <div class="tags"><span>Sem glúten</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </details>
-
-  <section id="Contactos">
+      <section id="Contactos">
         <h2>Contactos</h2>
         <p>Contacto telefónico - 234567890</p>
         <p>Fax - 234666666</p>
@@ -233,10 +236,9 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-    </section>
-</main>
+      </section>
+    </main>
 
-<script src="script_alt.js"></script>
-
-</body>
+    <script src="script_alt.js"></script>
+  </body>
 </html>
