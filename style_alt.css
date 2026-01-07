@@ -58,23 +58,31 @@ header {
   align-items: start;
 }
 
-/* ==================== SIDEBARS ==================== */
+/* ==================== SIDEBARS (Comum) ==================== */
+.sidebar-left,
+.sidebar-right {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  height: fit-content;
+}
+
 .sidebar-left {
   grid-column: 1;
+  grid-row: 1;
 }
 
 .sidebar-right {
   grid-column: 3;
+  grid-row: 1;
 }
 
-/* ✅ CLASSE COMUM - MESMO ESTILO PARA AMBAS */
+/* ==================== SIDEBAR BOX (Estilo visual) ==================== */
 .sidebar-box {
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -380,6 +388,8 @@ summary::-webkit-details-marker {
   .sidebar-left {
     grid-column: 1;
     grid-row: 1;
+    position: relative;                /* ✅ Remove sticky em mobile */
+    top: 0;
   }
 
   main {
@@ -390,7 +400,10 @@ summary::-webkit-details-marker {
   .sidebar-right {
     grid-column: 1;
     grid-row: 3;
+    position: relative;                /* ✅ Remove sticky em mobile */
+    top: 0;
   }
+
 
   .sidebar-box {
     position: relative;
