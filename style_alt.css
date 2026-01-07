@@ -7,7 +7,7 @@
 
 /* ==================== BODY ==================== */
 body {
-  background: #f5f0e8;
+  background: #D4C4B0;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
@@ -154,20 +154,23 @@ summary::-webkit-details-marker {
 .menu {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
   gap: 20px;
+  justify-content: center;
 }
 
 /* ==================== FLIP CARD ==================== */
 .item {
   perspective: 1000px;
   width: 100%;
+  max-width: 350px;
 }
 
 .card {
   width: 100%;
   aspect-ratio: 1/1;
   min-height: 280px;
+  max-height: 350px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -253,12 +256,16 @@ summary::-webkit-details-marker {
 
 /* ==================== CONTACTOS ==================== */
 #Contactos {
-  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 #Contactos h2 {
   font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
   margin-bottom: 15px;
+  color: #2e7d32;
 }
 
 #Contactos p {
