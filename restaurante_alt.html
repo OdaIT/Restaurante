@@ -21,6 +21,42 @@
   </section>
 </header>
 
+<aside class="sidebar">
+    <div class="container">
+      <h1>Reserva</h1>
+
+      <div class="calendar-header">
+        <button id="prev">◀</button>
+        <strong id="monthYear"></strong>
+        <button id="next">▶</button>
+      </div>
+
+      <div class="calendar-grid" id="calendar">
+        <div class="day-name">D</div>
+        <div class="day-name">S</div>
+        <div class="day-name">T</div>
+        <div class="day-name">Q</div>
+        <div class="day-name">Q</div>
+        <div class="day-name">S</div>
+        <div class="day-name">S</div>
+      </div>
+
+      <label for="time">Hora</label>
+      <select id="time"></select>
+
+      <label>Nome</label>
+      <input id="name" />
+
+      <label>Contacto Telefónico</label>
+      <input id="phone" />
+
+      <button id="submit">Confirmar Reserva</button>
+
+      <div id="confirmationMessage" class="hidden" style="margin-top:12px;color:#065f46;background:#d1fae5;padding:10px;border-radius:6px;font-size:14px;"></div>
+    </div>
+  </aside>
+</div>
+
 <main>
 
   <!-- ===== CHECKBOXES ===== -->
