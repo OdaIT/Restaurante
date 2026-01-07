@@ -7,7 +7,7 @@
 
 /* ==================== BODY ==================== */
 body {
-  background: #D4C4B0;
+  background: #d4c4b0;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
@@ -22,30 +22,30 @@ header {
   background: url(Images/taberna_alt.png) center/cover no-repeat;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-  
+
   /* ✅ GRID IGUAL AO CONTENT-WRAPPER */
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 20px;
-  padding: 0 20px;                     /* ✅ Mesmo padding lateral */
-  align-items: center;                 /* Centra verticalmente */
+  padding: 0 20px; /* ✅ Mesmo padding lateral */
+  align-items: center; /* Centra verticalmente */
 }
 
 .apresentar {
-  grid-column: 2;                      /* ✅ Coluna central */
-  text-align: start;                   /* Texto alinhado à esquerda */
+  grid-column: 2; /* ✅ Coluna central */
+  text-align: start; /* Texto alinhado à esquerda */
 }
 
 .apresentar h1 {
-  font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+  font-size: clamp(2.25rem, 4vw + 1rem, 3.5rem);
 }
 
 .apresentar h3 {
-  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  font-size: clamp(1.4rem, 2vw + 0.5rem, 1.75rem);
 }
 
 .apresentar p {
-  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem);
+  font-size: clamp(1.1rem, 1.5vw + 0.5rem, 1.3rem);
   margin-top: 20px;
 }
 
@@ -54,7 +54,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 20px;
-  padding: 30px 20px;                  /* ✅ Mesmo padding lateral que o header */
+  padding: 30px 20px; /* ✅ Mesmo padding lateral que o header */
   align-items: start;
 }
 
@@ -89,13 +89,13 @@ header {
 }
 
 .sidebar-box h2 {
-  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
+  font-size: clamp(1.35rem, 2vw + 0.5rem, 1.5rem);
   color: #2e7d32;
   margin-bottom: 5px;
 }
 
 .sidebar-box p {
-  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.15rem);
+  font-size: clamp(1.05rem, 1.2vw + 0.5rem, 1.15rem);
 }
 
 .sidebar-box label {
@@ -104,7 +104,7 @@ header {
   gap: 8px;
   font-weight: bold;
   cursor: pointer;
-  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.1rem);
+  font-size: clamp(1.05rem, 1vw + 0.5rem, 1.1rem);
 }
 
 .sidebar-box input[type="checkbox"] {
@@ -122,12 +122,12 @@ main {
 
 #menutop {
   text-align: center;
-  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-size: clamp(1.75rem, 2vw + 0.5rem, 2rem);
   margin-bottom: 20px;
 }
 
 #carta_menu h2 {
-  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-size: clamp(1.75rem, 2vw + 0.5rem, 2rem);
   margin-bottom: 20px;
 }
 
@@ -141,7 +141,7 @@ details {
 }
 
 summary {
-  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
+  font-size: clamp(1.35rem, 2vw + 0.5rem, 1.5rem);
   font-weight: bold;
   cursor: pointer;
   list-style: none;
@@ -188,17 +188,17 @@ summary::-webkit-details-marker {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  background: #B56B63;
+  background: #b56b63;
   display: flex;
   flex-direction: column;
-  padding: clamp(10px, 2vw, 20px);
+  padding: clamp(15px, 2vw, 20px);
   text-align: center;
 }
 
 .card-front {
   justify-content: flex-start;
   align-items: center;
-  padding-top: clamp(15px, 3vw, 25px);
+  padding-top: clamp(20px, 3vw, 25px);
 }
 
 .card-front img {
@@ -207,7 +207,7 @@ summary::-webkit-details-marker {
   width: auto;
   height: auto;
   border-radius: 12px;
-  margin-bottom: clamp(10px, 2vw, 15px);
+  margin-bottom: clamp(12px, 2vw, 15px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: block;
 }
@@ -215,7 +215,7 @@ summary::-webkit-details-marker {
 .card-front h3 {
   margin: 0;
   color: white;
-  font-size: clamp(0.95rem, 1.2vw + 0.4rem, 1.35rem);
+  font-size: clamp(1.1rem, 1.2vw + 0.4rem, 1.35rem);
   padding: 0 5px;
   word-wrap: break-word;
   hyphens: auto;
@@ -224,17 +224,17 @@ summary::-webkit-details-marker {
 
 .card-back {
   transform: rotateY(180deg);
-  background: #B56B63;
+  background: #b56b63;
   color: white;
   justify-content: center;
   align-items: center;
-  padding: clamp(15px, 3vw, 25px);
+  padding: clamp(20px, 3vw, 25px);
 }
 
 .card-back p {
-  font-size: clamp(0.85rem, 1vw + 0.4rem, 1.1rem);
+  font-size: clamp(1rem, 1vw + 0.4rem, 1.1rem); /* ⬆️ MIN: 0.85rem → 1rem */
+  margin-bottom: clamp(12px, 2vw, 15px);
   line-height: 1.5;
-  margin-bottom: clamp(10px, 2vw, 15px);
   word-wrap: break-word;
 }
 
@@ -248,9 +248,10 @@ summary::-webkit-details-marker {
 .tags span {
   display: inline-block;
   background: rgba(255, 255, 255, 0.25);
-  padding: clamp(3px, 0.5vw, 5px) clamp(6px, 1vw, 10px);
+
   border-radius: 4px;
-  font-size: clamp(0.65rem, 0.8vw + 0.3rem, 0.85rem);
+  padding: clamp(5px, 0.5vw, 6px) clamp(10px, 1vw, 12px); /* ⬆️ Padding maior */
+  font-size: clamp(0.85rem, 0.8vw + 0.3rem, 0.95rem);
   white-space: nowrap;
 }
 
@@ -263,13 +264,13 @@ summary::-webkit-details-marker {
 }
 
 #Contactos h2 {
-  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-size: clamp(1.75rem, 2vw + 0.5rem, 2rem);
   margin-bottom: 15px;
   color: black;
 }
 
 #Contactos p {
-  font-size: clamp(1rem, 1vw + 0.5rem, 1.1rem);
+  font-size: clamp(1.05rem, 1vw + 0.5rem, 1.15rem);
   line-height: 1.6;
 }
 
@@ -386,30 +387,29 @@ summary::-webkit-details-marker {
 
 /* ==================== MOBILE ==================== */
 @media (max-width: 768px) {
-  
   /* ===== HEADER ===== */
   header {
-    grid-template-columns: 1fr;        /* ✅ Uma coluna */
-    justify-items: center;             /* ✅ Centra horizontalmente */
+    grid-template-columns: 1fr; /* ✅ Uma coluna */
+    justify-items: center; /* ✅ Centra horizontalmente */
     text-align: center;
     padding: 20px;
   }
 
   .apresentar {
-    grid-column: 1;                    /* ✅ Reset para coluna única */
+    grid-column: 1; /* ✅ Reset para coluna única */
     text-align: center;
-    width: 100%;                       /* ✅ Ocupa toda a largura */
-    max-width: 600px;                  /* ✅ Limite razoável para leitura */
+    width: 100%; /* ✅ Ocupa toda a largura */
+    max-width: 600px; /* ✅ Limite razoável para leitura */
   }
 
   /* ===== CONTENT WRAPPER ===== */
   .content-wrapper {
-    grid-template-columns: 1fr;        /* ✅ Uma coluna */
-    width: 100%;                       /* ✅ CRESCE - ocupa tudo */
-    max-width: 100%;                   /* ✅ Remove limitação */
+    grid-template-columns: 1fr; /* ✅ Uma coluna */
+    width: 100%; /* ✅ CRESCE - ocupa tudo */
+    max-width: 100%; /* ✅ Remove limitação */
     gap: 20px;
     padding: 20px;
-    justify-items: center;             /* ✅ Centra os filhos */
+    justify-items: center; /* ✅ Centra os filhos */
   }
 
   /* ===== SIDEBARS ===== */
@@ -418,8 +418,8 @@ summary::-webkit-details-marker {
     grid-row: 1;
     position: relative;
     top: 0;
-    width: 100%;                       /* ✅ CRESCE */
-    max-width: 500px;                  /* ✅ Limite para não ficar muito largo */
+    width: 100%; /* ✅ CRESCE */
+    max-width: 500px; /* ✅ Limite para não ficar muito largo */
   }
 
   .sidebar-right {
@@ -427,69 +427,69 @@ summary::-webkit-details-marker {
     grid-row: 3;
     position: relative;
     top: 0;
-    width: 100%;                       /* ✅ CRESCE */
+    width: 100%; /* ✅ CRESCE */
     max-width: 500px;
   }
 
   .sidebar-box {
     position: relative;
     top: 0;
-    width: 100%;                       /* ✅ CRESCE dentro do parent */
+    width: 100%; /* ✅ CRESCE dentro do parent */
   }
 
   /* ===== MAIN ===== */
   main {
     grid-column: 1;
     grid-row: 2;
-    width: 100%;                       /* ✅ CRESCE */
+    width: 100%; /* ✅ CRESCE */
   }
 
   #menutop {
-    text-align: center;                /* ✅ CENTRADO */
+    text-align: center; /* ✅ CENTRADO */
   }
 
   #carta_menu h2 {
-    text-align: center;                /* ✅ CENTRADO */
+    text-align: center; /* ✅ CENTRADO */
   }
 
   /* ===== MENU GRID ===== */
   .menu {
-    grid-template-columns: 1fr;        /* ✅ Uma coluna */
-    width: 100%;                       /* ✅ CRESCE */
-    max-width: 100%;                   /* ✅ Remove limitação */
+    grid-template-columns: 1fr; /* ✅ Uma coluna */
+    width: 100%; /* ✅ CRESCE */
+    max-width: 100%; /* ✅ Remove limitação */
     margin: 0 auto;
-    justify-items: center;             /* ✅ Centra os cards */
+    justify-items: center; /* ✅ Centra os cards */
   }
 
   /* ===== CARDS ===== */
   .item {
-    width: 100%;                       /* ✅ CRESCE */
-    max-width: 400px;                  /* ✅ Limite para não distorcer */
-    margin: 0 auto;                    /* ✅ CENTRADO */
+    width: 100%; /* ✅ CRESCE */
+    max-width: 400px; /* ✅ Limite para não distorcer */
+    margin: 0 auto; /* ✅ CENTRADO */
   }
 
   .card {
     aspect-ratio: 5 / 4;
     min-height: 220px;
-    max-height: none;                  /* ✅ Permite crescer */
+    max-height: none; /* ✅ Permite crescer */
   }
 
   /* ===== DETAILS ===== */
   details {
-    width: 100%;                       /* ✅ CRESCE */
+    width: 100%; /* ✅ CRESCE */
     text-align: center;
   }
 
   summary {
-    text-align: center;                /* ✅ CENTRADO */
+    text-align: center; /* ✅ CENTRADO */
   }
 
   /* ===== CONTACTOS ===== */
   #Contactos {
-    width: 100%;                       /* ✅ CRESCE */
+    width: 100%; /* ✅ CRESCE */
   }
 
   #Contactos h2 {
-    text-align: center;                /* ✅ CENTRADO */
+    text-align: center; /* ✅ CENTRADO */
   }
 }
