@@ -188,7 +188,7 @@ summary::-webkit-details-marker {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  background: white;
+  background: #B56B63;
   display: flex;
   flex-direction: column;
   padding: clamp(10px, 2vw, 20px);
@@ -214,7 +214,7 @@ summary::-webkit-details-marker {
 
 .card-front h3 {
   margin: 0;
-  color: #2e7d32;
+  color: white;
   font-size: clamp(0.95rem, 1.2vw + 0.4rem, 1.35rem);
   padding: 0 5px;
   word-wrap: break-word;
@@ -224,7 +224,7 @@ summary::-webkit-details-marker {
 
 .card-back {
   transform: rotateY(180deg);
-  background: #2e7d32;
+  background: #B56B63;
   color: white;
   justify-content: center;
   align-items: center;
@@ -388,6 +388,7 @@ summary::-webkit-details-marker {
 @media (max-width: 768px) {
   .content-wrapper {
     grid-template-columns: 1fr;
+    max-width: 350px;  
     gap: 20px;
     padding: 20px;
   }
@@ -411,7 +412,6 @@ summary::-webkit-details-marker {
     top: 0;
   }
 
-
   .sidebar-box {
     position: relative;
     top: 0;
@@ -424,6 +424,10 @@ summary::-webkit-details-marker {
     margin-right: auto;
   }
 
+  .item {
+    max-width: 100%;                   /* ✅ Ocupa toda a largura disponível */
+  }
+
   .card {
     aspect-ratio: 5 / 4;
     min-height: 220px;
@@ -431,5 +435,9 @@ summary::-webkit-details-marker {
 
   .apresentar {
     text-align: center;
+  }
+
+  #menutop {
+    text-align: start;                 /* ✅ Alinhado à esquerda em mobile */
   }
 }
