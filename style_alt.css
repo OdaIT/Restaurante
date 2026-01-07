@@ -1,15 +1,14 @@
+/* ==================== RESET ==================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==================== BODY ==================== */
 body {
   background: #f5f0e8;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: auto auto;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -17,26 +16,24 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
+/* ==================== HEADER ==================== */
 header {
-  grid-column: 1 / -1;
-  grid-row: 1;
   height: 100vh;
   background: url(Images/taberna_alt.png) center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-main {
-  grid-column: 2;
-  padding: 10px 10px;
+  
+  /* ✅ GRID IGUAL AO CONTENT-WRAPPER */
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  padding: 0 20px;                     /* ✅ Mesmo padding lateral */
+  align-items: center;                 /* Centra verticalmente */
 }
 
 .apresentar {
-  grid-column: 2; /* Texto na coluna central */
-  text-align: start;
+  grid-column: 2;                      /* ✅ Coluna central */
+  text-align: start;                   /* Texto alinhado à esquerda */
 }
 
 .apresentar h1 {
@@ -52,54 +49,75 @@ main {
   margin-top: 20px;
 }
 
-/* ----- FILTROS ----- */
-.filtros-sidebar {
-  grid-column: 1;
-  grid-row: 2;
-  padding: 10px 10px;
-  background: lightcoral;
+/* ==================== CONTENT WRAPPER ==================== */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  padding: 30px 20px;                  /* ✅ Mesmo padding lateral que o header */
+  align-items: start;
 }
 
-.filtros {
-  position: sticky;
-  top: 20px; /* Distância do topo ao fazer scroll */
+/* ==================== SIDEBARS ==================== */
+.sidebar-left {
+  grid-column: 1;
+}
+
+.sidebar-right {
+  grid-column: 3;
+}
+
+/* ✅ CLASSE COMUM - MESMO ESTILO PARA AMBAS */
+.sidebar-box {
   background: white;
-  padding: 15px 20px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 30px 0px 30px 20px;
 }
 
-.filtros p {
-  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.15rem);
+.sidebar-box h2 {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
+  color: #2e7d32;
   margin-bottom: 5px;
 }
 
-.filtros label {
+.sidebar-box p {
+  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.15rem);
+}
+
+.sidebar-box label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 0;
   font-weight: bold;
   cursor: pointer;
   font-size: clamp(0.95rem, 1vw + 0.5rem, 1.1rem);
 }
 
-/* Estilização e alinhamento das checkboxes */
-.filtros input[type="checkbox"] {
+.sidebar-box input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  margin: 0; /* Remove margens default */
-  padding: 0; /* Remove padding default */
-  vertical-align: middle; /* Alinha verticalmente */
   accent-color: #2e7d32;
   cursor: pointer;
-  flex-shrink: 0; /* Não encolhe */
+  flex-shrink: 0;
 }
 
+/* ==================== MAIN ==================== */
+main {
+  grid-column: 2;
+}
+
+#carta_menu h2 {
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  margin-bottom: 20px;
+}
+
+/* ==================== DETAILS / MENU ==================== */
 details {
   background: white;
   border-radius: 8px;
@@ -109,7 +127,7 @@ details {
 }
 
 summary {
-  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem); /* 👈 Títulos secções */
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
   font-weight: bold;
   cursor: pointer;
   list-style: none;
@@ -126,7 +144,7 @@ summary::-webkit-details-marker {
   gap: 20px;
 }
 
-/* ----- FLIP CARD ----- */
+/* ==================== FLIP CARD ==================== */
 .item {
   perspective: 1000px;
   width: 100%;
@@ -156,7 +174,7 @@ summary::-webkit-details-marker {
   background: white;
   display: flex;
   flex-direction: column;
-  padding: clamp(10px, 2vw, 20px); /* Padding responsivo */
+  padding: clamp(10px, 2vw, 20px);
   text-align: center;
 }
 
@@ -168,7 +186,7 @@ summary::-webkit-details-marker {
 
 .card-front img {
   max-width: 85%;
-  max-height: 55%; /* Percentagem da card */
+  max-height: 55%;
   width: auto;
   height: auto;
   border-radius: 12px;
@@ -187,7 +205,6 @@ summary::-webkit-details-marker {
   line-height: 1.3;
 }
 
-/* ----- VERSO DA CARD ----- */
 .card-back {
   transform: rotateY(180deg);
   background: #2e7d32;
@@ -211,7 +228,6 @@ summary::-webkit-details-marker {
   gap: clamp(4px, 0.8vw, 8px);
 }
 
-.card-back .tags span,
 .tags span {
   display: inline-block;
   background: rgba(255, 255, 255, 0.25);
@@ -221,13 +237,14 @@ summary::-webkit-details-marker {
   white-space: nowrap;
 }
 
-#Contactos iframe {
-  width: 100%;
-  height: 50vh;
+/* ==================== CONTACTOS ==================== */
+#Contactos {
+  margin-top: 30px;
 }
 
 #Contactos h2 {
   font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  margin-bottom: 15px;
 }
 
 #Contactos p {
@@ -235,56 +252,15 @@ summary::-webkit-details-marker {
   line-height: 1.6;
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 24px;
-  padding: 24px;
-  min-height: calc(100vh - 128px);
+#Contactos iframe {
+  width: 100%;
+  height: 50vh;
+  margin-top: 15px;
+  border: 0;
+  border-radius: 8px;
 }
 
-.sidebar {
-  grid-column: 3;
-  grid-row: 2;
-  padding: 10px 10px;
-  background: lightblue;
-}
-
-.sidebar .container {
-  position: sticky;
-  top: 20px;
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#confirmationMessage {
-  margin-top: 12px;
-  color: #065f46;
-  background: #d1fae5;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-#confirmationMessage.hidden {
-  display: none;
-}
-
-.container {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.container h1 {
-  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
-  margin-bottom: 15px;
-  color: #2e7d32;
-}
-
+/* ==================== CALENDÁRIO (Sidebar Reserva) ==================== */
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -297,6 +273,12 @@ summary::-webkit-details-marker {
   border: none;
   font-size: 18px;
   cursor: pointer;
+  padding: 5px 10px;
+}
+
+.calendar-header button:hover {
+  background: #e5e7eb;
+  border-radius: 4px;
 }
 
 .calendar-grid {
@@ -323,7 +305,7 @@ summary::-webkit-details-marker {
 }
 
 .day.selected {
-  background: #2563eb;
+  background: #2e7d32;
   color: white;
 }
 
@@ -332,15 +314,17 @@ summary::-webkit-details-marker {
   pointer-events: none;
 }
 
-label {
+/* ==================== FORM ELEMENTS ==================== */
+.sidebar-box label {
   display: block;
-  margin-top: 16px;
+  margin-top: 10px;
   font-weight: bold;
 }
 
-select,
-input,
-button {
+.sidebar-box select,
+.sidebar-box input[type="text"],
+.sidebar-box input[type="tel"],
+.sidebar-box input[type="number"] {
   width: 100%;
   padding: 8px;
   margin-top: 6px;
@@ -349,51 +333,62 @@ button {
   font-size: 14px;
 }
 
-button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  cursor: pointer;
+.sidebar-box button {
+  width: 100%;
+  padding: 10px;
   margin-top: 16px;
+  border-radius: 4px;
+  border: none;
+  background: #2e7d32;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-button:hover {
-  background: #1e40af;
+.sidebar-box button:hover {
+  background: #1b5e20;
+}
+
+#confirmationMessage {
+  margin-top: 12px;
+  color: #065f46;
+  background: #d1fae5;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
 .hidden {
   display: none;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  body {
+/* ==================== MOBILE ==================== */
+@media (max-width: 900px) {
+  .content-wrapper {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    gap: 20px;
+    padding: 20px;
   }
 
-  header {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
-  }
-
-  .apresentar {
+  .sidebar-left {
     grid-column: 1;
-    text-align: center;
+    grid-row: 1;
   }
 
   main {
-    grid-column: 2;
-    grid-row: 2;
-    background: lightgreen;
-  }
-
-  .sidebar {
     grid-column: 1;
     grid-row: 2;
+  }
+
+  .sidebar-right {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .sidebar-box {
     position: relative;
     top: 0;
-    margin: 20px;
   }
 
   .menu {
@@ -408,52 +403,7 @@ button:hover {
     min-height: 220px;
   }
 
-  /* Ajuste do layout da frente da card */
-  .card-front {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 15px;
-  }
-
-  /* Imagem com flex-grow */
-  .card-front img {
-    flex: 1 1 auto; /* Cresce para ocupar espaço */
-    max-width: 75%;
-    min-height: 0; /* Necessário para flex funcionar */
-    object-fit: contain; /* Mantém proporção ao crescer */
-    margin-bottom: 10px;
-  }
-
-  /* Título não cresce */
-  .card-front h3 {
-    flex: 0 0 auto; /* Não cresce, tamanho fixo */
-    font-size: 1rem;
-  }
-
-  .card-back p {
-    font-size: 0.9rem;
-  }
-
-  .card-back .tags span {
-    font-size: 0.7rem;
-    padding: 3px 6px;
-  }
-
-  summary {
-    font-size: 1.25rem;
-  }
-
-  .apresentar h1 {
-    font-size: 2rem;
-  }
-
-  .apresentar h3 {
-    font-size: 1.25rem;
-  }
-
-  .apresentar p {
-    font-size: 1rem;
+  .apresentar {
+    text-align: center;
   }
 }
