@@ -22,18 +22,16 @@ header {
   background: url(Images/taberna_alt.png) center/cover no-repeat;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-
-  /* ✅ GRID IGUAL AO CONTENT-WRAPPER */
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 20px;
-  padding: 0 20px; /* ✅ Mesmo padding lateral */
-  align-items: center; /* Centra verticalmente */
+  padding: 0 20px; 
+  align-items: center; 
 }
 
 .apresentar {
-  grid-column: 2; /* ✅ Coluna central */
-  text-align: start; /* Texto alinhado à esquerda */
+  grid-column: 2; 
+  text-align: start; 
 }
 
 .apresentar h1 {
@@ -54,7 +52,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 20px;
-  padding: 30px 20px; /* ✅ Mesmo padding lateral que o header */
+  padding: 30px 20px; 
   align-items: start;
 }
 
@@ -232,7 +230,7 @@ summary::-webkit-details-marker {
 }
 
 .card-back p {
-  font-size: clamp(1rem, 1vw + 0.4rem, 1.1rem); /* ⬆️ MIN: 0.85rem → 1rem */
+  font-size: clamp(1rem, 1vw + 0.4rem, 1.1rem); 
   margin-bottom: clamp(12px, 2vw, 15px);
   line-height: 1.5;
   word-wrap: break-word;
@@ -250,7 +248,7 @@ summary::-webkit-details-marker {
   background: rgba(255, 255, 255, 0.25);
 
   border-radius: 4px;
-  padding: clamp(5px, 0.5vw, 6px) clamp(10px, 1vw, 12px); /* ⬆️ Padding maior */
+  padding: clamp(5px, 0.5vw, 6px) clamp(10px, 1vw, 12px); 
   font-size: clamp(0.85rem, 0.8vw + 0.3rem, 0.95rem);
   white-space: nowrap;
 }
@@ -389,27 +387,27 @@ summary::-webkit-details-marker {
 @media (max-width: 768px) {
   /* ===== HEADER ===== */
   header {
-    grid-template-columns: 1fr; /* ✅ Uma coluna */
-    justify-items: center; /* ✅ Centra horizontalmente */
+    grid-template-columns: 1fr; 
+    justify-items: center; 
     text-align: center;
     padding: 20px;
   }
 
   .apresentar {
-    grid-column: 1; /* ✅ Reset para coluna única */
+    grid-column: 1; 
     text-align: center;
-    width: 100%; /* ✅ Ocupa toda a largura */
-    max-width: 600px; /* ✅ Limite razoável para leitura */
+    width: 100%; 
+    max-width: 600px; 
   }
 
   /* ===== CONTENT WRAPPER ===== */
   .content-wrapper {
-    grid-template-columns: 1fr; /* ✅ Uma coluna */
-    width: 100%; /* ✅ CRESCE - ocupa tudo */
-    max-width: 100%; /* ✅ Remove limitação */
+    grid-template-columns: 1fr; 
+    width: 100%; 
+    max-width: 100%; 
     gap: 20px;
     padding: 20px;
-    justify-items: center; /* ✅ Centra os filhos */
+    justify-items: center; 
   }
 
   /* ===== SIDEBARS ===== */
@@ -418,8 +416,8 @@ summary::-webkit-details-marker {
     grid-row: 1;
     position: relative;
     top: 0;
-    width: 100%; /* ✅ CRESCE */
-    max-width: 500px; /* ✅ Limite para não ficar muito largo */
+    width: 100%; 
+    max-width: 500px; 
   }
 
   .sidebar-right {
@@ -427,69 +425,69 @@ summary::-webkit-details-marker {
     grid-row: 3;
     position: relative;
     top: 0;
-    width: 100%; /* ✅ CRESCE */
+    width: 100%; 
     max-width: 500px;
   }
 
   .sidebar-box {
     position: relative;
     top: 0;
-    width: 100%; /* ✅ CRESCE dentro do parent */
+    width: 100%; 
   }
 
   /* ===== MAIN ===== */
   main {
     grid-column: 1;
     grid-row: 2;
-    width: 100%; /* ✅ CRESCE */
+    width: 100%; 
   }
 
   #menutop {
-    text-align: center; /* ✅ CENTRADO */
+    text-align: center; 
   }
 
   #carta_menu h2 {
-    text-align: center; /* ✅ CENTRADO */
+    text-align: center; 
   }
 
   /* ===== MENU GRID ===== */
   .menu {
-    grid-template-columns: 1fr; /* ✅ Uma coluna */
-    width: 100%; /* ✅ CRESCE */
-    max-width: 100%; /* ✅ Remove limitação */
+    grid-template-columns: 1fr; 
+    width: 100%; 
+    max-width: 100%; 
     margin: 0 auto;
-    justify-items: center; /* ✅ Centra os cards */
+    justify-items: center; 
   }
 
   /* ===== CARDS ===== */
   .item {
-    width: 100%; /* ✅ CRESCE */
-    max-width: 400px; /* ✅ Limite para não distorcer */
-    margin: 0 auto; /* ✅ CENTRADO */
+    width: 100%; 
+    max-width: 400px; 
+    margin: 0 auto; 
   }
 
   .card {
     aspect-ratio: 5 / 4;
     min-height: 220px;
-    max-height: none; /* ✅ Permite crescer */
+    max-height: none; 
   }
 
   /* ===== DETAILS ===== */
   details {
-    width: 100%; /* ✅ CRESCE */
+    width: 100%; 
     text-align: center;
   }
 
   summary {
-    text-align: center; /* ✅ CENTRADO */
+    text-align: center; 
   }
 
   /* ===== CONTACTOS ===== */
   #Contactos {
-    width: 100%; /* ✅ CRESCE */
+    width: 100%; 
   }
 
   #Contactos h2 {
-    text-align: center; /* ✅ CENTRADO */
+    text-align: center; 
   }
 }
